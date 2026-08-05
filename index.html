@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>ThemeVerse — Real Style Themes</title>
-  <meta name="description" content="Landing page with genuine multi-style themes: glass, brutalist, clay, terminal, editorial, vaporwave and more." />
+  <title>AI Cheat Sheet — Prompt & Workflow Playbook</title>
+  <meta name="description" content="AI cheat sheet: prompts, workflows, roles, frameworks and power moves. Browse with live multi-style themes." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,700;1,9..40,400&family=IBM+Plex+Mono:wght@400;600&family=Inter:wght@400;500;600;700;800&family=Outfit:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,500;0,700;1,600&family=Space+Grotesk:wght@400;500;600;700&family=Syne:wght@600;700;800&display=swap" rel="stylesheet" />
@@ -1128,148 +1128,287 @@
       <div class="brand">
         <div class="brand-mark" aria-hidden="true"></div>
         <div>
-          <h1>ThemeVerse</h1>
-          <p>Đổi style thật, không chỉ đổi màu</p>
+          <h1>AI Cheat Sheet</h1>
+          <p>Prompt, workflow & power moves</p>
         </div>
       </div>
 
       <section class="panel">
-        <h2>Chọn style theme</h2>
-        <input id="search" class="search" type="search" placeholder="Tìm glass, brutalist, terminal..." />
+        <h2>Theme + tìm tip</h2>
+        <input id="search" class="search" type="search" placeholder="Tìm theme hoặc tip: prompt, agent..." />
       </section>
 
       <div id="themeGroups"></div>
     </aside>
 
-    <main class="main">
+        <main class="main">
       <section class="hero" id="top">
         <div class="hero-copy">
           <div class="hero-top">
-            <div class="pill">Real multi-style theme engine</div>
+            <div class="pill">AI usage playbook</div>
             <div class="style-badge" id="currentThemeLabel">Glass Aurora · glass</div>
           </div>
-          <h2 id="heroTitle">Landing page đổi cả ngôn ngữ thiết kế.</h2>
+          <h2 id="heroTitle">AI Cheat Sheet cho người làm việc thật.</h2>
           <p class="lead" id="heroLead">
-            Mỗi theme là một hệ style riêng: font, bo góc, bóng, border, layout nhịp, decoration và component treatment.
-            Không còn kiểu chỉ thay palette rồi gọi là theme.
+            Tập hợp prompt patterns, framework, workflow và power moves để dùng AI nhanh hơn, rõ hơn, ra kết quả tốt hơn.
+            Đổi theme bên trái nếu muốn học trong style giao diện khác.
           </p>
           <div class="actions">
-            <a class="btn btn-primary" href="#gallery">Dùng thử theme</a>
-            <a class="btn btn-ghost" href="#kit">Xem UI kit đổi theo style</a>
+            <a class="btn btn-primary" href="#cheats">Xem cheat sheet</a>
+            <a class="btn btn-ghost" href="#prompts">Copy prompt patterns</a>
           </div>
         </div>
         <div class="hero-deco" aria-hidden="true"></div>
       </section>
 
-      <section class="grid" id="gallery">
+      <section class="grid" id="cheats">
         <div class="card stats">
+          <div class="stat"><strong>12</strong><span>core frameworks</span></div>
+          <div class="stat"><strong>40+</strong><span>prompt moves</span></div>
+          <div class="stat"><strong>8</strong><span>workflow recipes</span></div>
           <div class="stat"><strong>20</strong><span>style themes</span></div>
-          <div class="stat"><strong>16</strong><span>design systems</span></div>
-          <div class="stat"><strong>Live</strong><span>switch no reload</span></div>
-          <div class="stat"><strong>UI</strong><span>components adapt</span></div>
         </div>
 
         <div class="card preview">
-          <div class="pill">Active system</div>
-          <h3 style="margin:14px 0 8px;font-family:var(--font-display);font-size:1.5rem" id="previewTitle">Glassmorphism</h3>
+          <div class="pill">Active focus</div>
+          <h3 style="margin:14px 0 8px;font-family:var(--font-display);font-size:1.5rem" id="previewTitle">Prompt OS</h3>
           <p style="margin:0;color:var(--muted);line-height:1.7" id="previewDesc">
-            Surfaces mờ kính, glow mềm, bo góc lớn và depth bằng blur.
+            Dùng AI như hệ điều hành công việc: rõ mục tiêu, ràng buộc, định dạng output và tiêu chí chấp nhận.
           </p>
           <div class="mini-grid">
-            <div class="mini"><strong>Typography</strong><span id="typoMeta">Outfit + Inter</span></div>
-            <div class="mini"><strong>Shape language</strong><span id="shapeMeta">Soft rounded / blur</span></div>
-            <div class="mini"><strong>Depth</strong><span id="depthMeta">Glass blur + glow</span></div>
-            <div class="mini"><strong>Accent motion</strong><span id="accentMeta">Gradient orbs</span></div>
+            <div class="mini"><strong>Goal</strong><span id="typoMeta">Một outcome đo được</span></div>
+            <div class="mini"><strong>Context</strong><span id="shapeMeta">Audience + constraints</span></div>
+            <div class="mini"><strong>Format</strong><span id="depthMeta">Table / steps / code</span></div>
+            <div class="mini"><strong>QA</strong><span id="accentMeta">Rubric + self-check</span></div>
           </div>
         </div>
 
         <div class="features" id="features">
           <article class="card feature">
-            <h3>Style systems, not palettes</h3>
-            <p>Brutalist, clay, terminal, editorial, vaporwave, cyber HUD, swiss, y2k, magazine… mỗi cái một DNA riêng.</p>
+            <h3>1. Role → Goal → Constraints</h3>
+            <p>Bắt đầu bằng vai trò, mục tiêu, giới hạn. Ví dụ: “Bạn là staff engineer. Viết RFC ngắn, tối đa 400 từ, ưu tiên trade-off.”</p>
           </article>
           <article class="card feature">
-            <h3>Components rebuild themselves</h3>
-            <p>Button, card, table, chip, hero và sidebar đổi shape, border, shadow và type hierarchy theo theme.</p>
+            <h3>2. Show the shape of success</h3>
+            <p>Cho AI thấy output mẫu: headings, bảng, JSON schema, checklist. AI bám form tốt hơn là tự do viết.</p>
           </article>
           <article class="card feature">
-            <h3>Searchable theme menu</h3>
-            <p>Lọc theo tên, nhóm hoặc kiểu style. Active theme được highlight rõ.</p>
+            <h3>3. Iterate in loops</h3>
+            <p>Đừng xin perfect ngay. Loop: draft → critique → tighten → verify. Mỗi vòng chỉ tối ưu 1 trục.</p>
           </article>
           <article class="card feature">
-            <h3>Ready for product demos</h3>
-            <p>Dùng để pitch design direction, theme marketplace, hoặc style guide interactive.</p>
+            <h3>4. Separate thinking from shipping</h3>
+            <p>Dùng AI để khám phá options trước, chốt decision sau, rồi mới generate bản final sạch.</p>
           </article>
         </div>
       </section>
 
-      <section class="showcase" id="kit">
+      <section class="showcase" id="prompts">
         <div class="card ui-kit">
           <div class="hero-top">
-            <h3 style="margin:0;font-family:var(--font-display)">UI kit theo theme hiện tại</h3>
+            <h3 style="margin:0;font-family:var(--font-display)">Prompt patterns copy-ready</h3>
             <span class="style-tag" id="kitTag">style: glass</span>
           </div>
-          <div class="ui-row">
-            <a class="btn btn-primary" href="#top">Primary action</a>
-            <a class="btn btn-ghost" href="#top">Secondary</a>
-            <span class="status">Live status</span>
+
+          <div class="mini-grid" style="margin-top:0">
+            <div class="mini">
+              <strong>Clarify first</strong>
+              <span>“Trước khi trả lời, hỏi tối đa 5 câu để chốt scope. Nếu đủ info thì làm luôn.”</span>
+            </div>
+            <div class="mini">
+              <strong>Expert panel</strong>
+              <span>“Phản biện như 3 chuyên gia: PM, engineer, designer. Chỉ ra conflict rồi đề xuất option thắng.”</span>
+            </div>
+            <div class="mini">
+              <strong>Rubber duck debug</strong>
+              <span>“Đọc code/error này, liệt kê giả thuyết theo xác suất, rồi test plan từng bước.”</span>
+            </div>
+            <div class="mini">
+              <strong>Spec before code</strong>
+              <span>“Viết acceptance criteria + edge cases trước. Chỉ code sau khi tôi approve spec.”</span>
+            </div>
+            <div class="mini">
+              <strong>Rewrite ladder</strong>
+              <span>“Viết 3 bản: plain, sharp, executive. Giữ fact, đổi tone và mật độ thông tin.”</span>
+            </div>
+            <div class="mini">
+              <strong>Red team</strong>
+              <span>“Tìm lỗ hổng, assumption sai, rủi ro pháp lý/bảo mật. Xếp theo severity.”</span>
+            </div>
           </div>
-          <div class="ui-row">
-            <input class="sample-input" value="Input field adapts to style" readonly />
-          </div>
-          <div class="meter" aria-hidden="true"><i></i></div>
-          <div class="avatar-row" aria-hidden="true">
-            <div class="avatar"></div>
-            <div class="avatar"></div>
-            <div class="avatar"></div>
+
+          <div class="ui-row" style="margin-top:14px">
+            <a class="btn btn-primary" href="#workflows">Xem workflow</a>
+            <a class="btn btn-ghost" href="#formulas">Xem công thức</a>
+            <span class="status">copy & adapt</span>
           </div>
           <p style="margin:0;color:var(--muted);line-height:1.6" id="kitNote">
-            Theme này ưu tiên glass surface, soft glow và modern SaaS aesthetic.
+            Mẹo: luôn gắn context thật (file, audience, deadline, tool stack) để AI bớt ảo và bám việc hơn.
           </p>
         </div>
 
         <div class="card">
-          <h3 style="margin:0 0 12px;font-family:var(--font-display)">Data surface</h3>
+          <h3 style="margin:0 0 12px;font-family:var(--font-display)">Daily AI scoreboard</h3>
           <table class="table">
             <thead>
               <tr>
-                <th>Token</th>
-                <th>Value</th>
-                <th>State</th>
+                <th>Move</th>
+                <th>When</th>
+                <th>Win</th>
               </tr>
             </thead>
             <tbody>
               <tr>
-                <td>Radius</td>
-                <td id="tokenRadius">26px</td>
-                <td><span class="status">shape</span></td>
+                <td id="tokenRadius">Brief first</td>
+                <td id="tokenBorder">Mọi task mới</td>
+                <td><span class="status">ít rework</span></td>
               </tr>
               <tr>
-                <td>Border</td>
-                <td id="tokenBorder">1px glass</td>
-                <td><span class="status">edge</span></td>
+                <td id="tokenType">Critique pass</td>
+                <td>Sau draft 1</td>
+                <td><span class="status">chất lượng</span></td>
               </tr>
               <tr>
-                <td>Type</td>
-                <td id="tokenType">Outfit / Inter</td>
-                <td><span class="status">voice</span></td>
+                <td id="tokenDepth">Verify sources</td>
+                <td>Fact / code / legal</td>
+                <td><span class="status">ít hallucination</span></td>
               </tr>
               <tr>
-                <td>Depth</td>
-                <td id="tokenDepth">blur + glow</td>
-                <td><span class="status">space</span></td>
+                <td>Ship checklist</td>
+                <td>Trước final</td>
+                <td><span class="status">done-done</span></td>
               </tr>
             </tbody>
           </table>
         </div>
       </section>
 
+      <section class="grid" id="formulas" style="margin-top: var(--gap);">
+        <article class="card feature" style="grid-column: span 4;">
+          <h3>CARE</h3>
+          <p><strong>C</strong>ontext · <strong>A</strong>sk · <strong>R</strong>ules · <strong>E</strong>xamples. Đủ 4 phần là prompt đã “pro”.</p>
+        </article>
+        <article class="card feature" style="grid-column: span 4;">
+          <h3>RTF</h3>
+          <p><strong>R</strong>ole · <strong>T</strong>ask · <strong>F</strong>ormat. Nhanh nhất cho task hàng ngày.</p>
+        </article>
+        <article class="card feature" style="grid-column: span 4;">
+          <h3>CHAIN</h3>
+          <p><strong>C</strong>larify · <strong>H</strong>ypothesize · <strong>A</strong>ct · <strong>I</strong>nspect · <strong>N</strong>ext. Dùng cho problem-solving.</p>
+        </article>
+        <article class="card feature" style="grid-column: span 6;">
+          <h3>CO-STAR</h3>
+          <p><strong>C</strong>ontext · <strong>O</strong>bjective · <strong>S</strong>tyle · <strong>T</strong>one · <strong>A</strong>udience · <strong>R</strong>esponse. Tốt cho content & comms.</p>
+        </article>
+        <article class="card feature" style="grid-column: span 6;">
+          <h3>ReAct-ish</h3>
+          <p>Yêu cầu AI: nghĩ giả thuyết → chọn action → quan sát kết quả → cập nhật plan. Hợp research/debug dài.</p>
+        </article>
+      </section>
+
+      <section class="showcase" id="workflows">
+        <div class="card">
+          <h3 style="margin:0 0 12px;font-family:var(--font-display)">Workflow recipes</h3>
+          <div class="mini-grid">
+            <div class="mini">
+              <strong>Write faster</strong>
+              <span>Outline → ugly draft → punch-up → cut 30% → final tone pass.</span>
+            </div>
+            <div class="mini">
+              <strong>Code safer</strong>
+              <span>Spec → tests first → implement → edge cases → refactor notes.</span>
+            </div>
+            <div class="mini">
+              <strong>Learn anything</strong>
+              <span>ELI5 → mental model → 5 drills → common mistakes → 1 project.</span>
+            </div>
+            <div class="mini">
+              <strong>Decision memo</strong>
+              <span>Options → pros/cons → risks → recommendation → kill criteria.</span>
+            </div>
+            <div class="mini">
+              <strong>Meeting to action</strong>
+              <span>Transcript → decisions → owners → deadlines → open questions.</span>
+            </div>
+            <div class="mini">
+              <strong>Research sprint</strong>
+              <span>Questions → sources → claims table → confidence → next experiments.</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="card ui-kit">
+          <h3 style="margin:0;font-family:var(--font-display)">Power moves</h3>
+          <div class="ui-row">
+            <span class="status">Ask for unknowns</span>
+            <span class="status">Force trade-offs</span>
+            <span class="status">Request citations</span>
+          </div>
+          <div class="ui-row">
+            <span class="status">Ban fluff</span>
+            <span class="status">Define done</span>
+            <span class="status">One change / turn</span>
+          </div>
+          <div class="meter" aria-hidden="true"><i></i></div>
+          <p style="margin:0;color:var(--muted);line-height:1.65">
+            <strong>Golden rule:</strong> AI giỏi tăng tốc tư duy có khung. Bạn giữ ownership về truth, taste và decision cuối.
+          </p>
+          <div class="ui-row">
+            <input class="sample-input" value="Prompt skeleton: Role + Goal + Context + Constraints + Output format + QA checklist" readonly />
+          </div>
+        </div>
+      </section>
+
+      <section class="grid" id="snippets" style="margin-top: var(--gap);">
+        <article class="card feature" style="grid-column: span 6;">
+          <h3>Anti-hallucination pack</h3>
+          <p>
+            “Nếu không chắc, nói không chắc.” · “Tách fact / inference / guess.” ·
+            “Chỉ dùng info tôi cung cấp trừ khi tôi cho phép search.” · “Liệt kê assumption.”
+          </p>
+        </article>
+        <article class="card feature" style="grid-column: span 6;">
+          <h3>Compression pack</h3>
+          <p>
+            “Cắt còn 40% nhưng giữ quyết định.” · “Thành bullet action.” ·
+            “Không mở đầu sáo rỗng.” · “Mỗi câu phải earn its place.”
+          </p>
+        </article>
+        <article class="card feature" style="grid-column: span 4;">
+          <h3>Coding pack</h3>
+          <p>Diff nhỏ · explain risk · no drive-by refactors · tests for changed paths · migration notes.</p>
+        </article>
+        <article class="card feature" style="grid-column: span 4;">
+          <h3>Design pack</h3>
+          <p>User job · happy path · empty/error states · accessibility · mobile first · success metric.</p>
+        </article>
+        <article class="card feature" style="grid-column: span 4;">
+          <h3>Management pack</h3>
+          <p>Goal · options · recommendation · cost · timeline · risks · ask for decision.</p>
+        </article>
+      </section>
+
+      <section class="card" id="checklist" style="margin-top: var(--gap);">
+        <div class="hero-top">
+          <h3 style="margin:0;font-family:var(--font-display)">Pre-flight checklist trước khi tin output AI</h3>
+          <span class="pill">use every time</span>
+        </div>
+        <div class="mini-grid">
+          <div class="mini"><strong>1. Đúng brief?</strong><span>Goal, audience, constraints có khớp không?</span></div>
+          <div class="mini"><strong>2. Fact check</strong><span>Số liệu, API, law, quote đã verify chưa?</span></div>
+          <div class="mini"><strong>3. Edge cases</strong><span>Null, failure, empty, abuse cases đã cover chưa?</span></div>
+          <div class="mini"><strong>4. Actionable?</strong><span>Có next step rõ owner/time không?</span></div>
+          <div class="mini"><strong>5. Tone fit</strong><span>Giọng có đúng brand/ngữ cảnh không?</span></div>
+          <div class="mini"><strong>6. Ship criteria</strong><span>Còn gì block launch / send / merge?</span></div>
+        </div>
+      </section>
+
       <section class="cta">
         <div>
-          <h3>Theme menu đã là style system thật.</h3>
-          <p>Chọn theme bên trái để thấy page đổi font, shape, decoration, button language và layout rhythm.</p>
+          <h3>Dùng AI như đồng đội có playbook.</h3>
+          <p>Chọn theme để đổi vibe học, còn cheat sheet thì giữ nguyên: brief rõ → iterate → verify → ship.</p>
         </div>
-        <a class="btn btn-primary" href="#top">Thử theme khác</a>
+        <a class="btn btn-primary" href="#prompts">Quay lại prompt patterns</a>
       </section>
     </main>
   </div>
@@ -1280,221 +1419,221 @@
         id: "glass-aurora", name: "Glass Aurora", group: "Glass", style: "glass",
         description: "Kính mờ, glow mềm, SaaS hiện đại",
         swatch: "linear-gradient(135deg,#7c8cff,#ff7ad9)",
-        heroTitle: "Landing page đổi cả ngôn ngữ thiết kế.",
-        heroLead: "Glass surfaces, soft glow và blur depth. Cảm giác product hiện đại, nhẹ và premium.",
-        previewTitle: "Glassmorphism",
-        previewDesc: "Surfaces mờ kính, glow mềm, bo góc lớn và depth bằng blur.",
-        typoMeta: "Outfit + Inter", shapeMeta: "Soft rounded / blur", depthMeta: "Glass blur + glow", accentMeta: "Gradient orbs",
-        kitNote: "Theme này ưu tiên glass surface, soft glow và modern SaaS aesthetic.",
-        tokens: { radius: "26px", border: "1px translucent", type: "Outfit / Inter", depth: "blur + glow" },
+        heroTitle: "AI Cheat Sheet trong mode product.",
+        heroLead: "Làm việc với AI như product workflow: brief → draft → critique → ship. Rõ ràng, sạch, convert được.",
+        previewTitle: "Clean Prompting",
+        previewDesc: "Structured prompts, measurable goals, output formats dễ paste vào tool.",
+        typoMeta: "Goal rõ 1 câu", shapeMeta: "Context đủ nhưng gọn", depthMeta: "Format cố định", accentMeta: "QA checklist",
+        kitNote: "Dùng khi cần output sạch để đưa thẳng vào docs, ticket, PR, email.",
+        tokens: { radius: "Brief first", border: "Scope lock", type: "Format lock", depth: "Ship check" },
         vars: { bg:"#0b1020", bg2:"#141b38", surface:"rgba(255,255,255,.08)", surface2:"rgba(255,255,255,.14)", text:"#f4f7ff", muted:"rgba(244,247,255,.72)", primary:"#7c8cff", secondary:"#35d6c7", accent:"#ff7ad9", border:"rgba(255,255,255,.16)", inkSoft:"rgba(255,255,255,.08)" }
       },
       {
         id: "frosted-ocean", name: "Frosted Ocean", group: "Glass", style: "glass",
         description: "Glass xanh biển, trong và mát",
         swatch: "linear-gradient(135deg,#2bb0ff,#49f0d0)",
-        heroTitle: "Cool glass. Clear product story.",
-        heroLead: "Ocean glass theme với surface trong hơn, accent cyan và cảm giác clean tech.",
-        previewTitle: "Frosted Glass",
-        previewDesc: "Biến thể glass thiên về cyan, sạch và thiên tech.",
-        typoMeta: "Outfit + Inter", shapeMeta: "Rounded glass panels", depthMeta: "Frost blur", accentMeta: "Aqua glow",
-        kitNote: "Phù hợp fintech, AI tools, dashboard marketing pages.",
-        tokens: { radius: "26px", border: "1px aqua edge", type: "Outfit / Inter", depth: "frosted blur" },
+        heroTitle: "AI Cheat Sheet trong mode product.",
+        heroLead: "Làm việc với AI như product workflow: brief → draft → critique → ship. Rõ ràng, sạch, convert được.",
+        previewTitle: "Clean Prompting",
+        previewDesc: "Structured prompts, measurable goals, output formats dễ paste vào tool.",
+        typoMeta: "Goal rõ 1 câu", shapeMeta: "Context đủ nhưng gọn", depthMeta: "Format cố định", accentMeta: "QA checklist",
+        kitNote: "Dùng khi cần output sạch để đưa thẳng vào docs, ticket, PR, email.",
+        tokens: { radius: "Brief first", border: "Scope lock", type: "Format lock", depth: "Ship check" },
         vars: { bg:"#07131f", bg2:"#0d2740", surface:"rgba(255,255,255,.08)", surface2:"rgba(255,255,255,.13)", text:"#eef8ff", muted:"rgba(238,248,255,.72)", primary:"#2bb0ff", secondary:"#49f0d0", accent:"#7cf7ff", border:"rgba(120,210,255,.2)", inkSoft:"rgba(255,255,255,.07)" }
       },
       {
         id: "brutal-poster", name: "Brutal Poster", group: "Brutal", style: "brutalist",
         description: "Góc vuông, border dày, hard shadow",
         swatch: "linear-gradient(135deg,#ffd60a,#111)",
-        heroTitle: "NO BLUR. NO SOFT. JUST IMPACT.",
-        heroLead: "Brutalist poster energy: lưới thô, chữ đậm, bóng cứng, zero radius. Theme này trông như print design.",
-        previewTitle: "Brutalism",
-        previewDesc: "Cạnh sắc, bóng offset cứng, typography quát lớn.",
-        typoMeta: "Archivo Black + Space Grotesk", shapeMeta: "0 radius / thick border", depthMeta: "Hard offset shadow", accentMeta: "Poster blocks",
-        kitNote: "Mọi component trở thành khối poster. Rất khác glass.",
-        tokens: { radius: "0px", border: "3px solid ink", type: "Archivo Black", depth: "hard offset" },
+        heroTitle: "NO VAGUE PROMPTS. NO FLUFF.",
+        heroLead: "Mode quyết liệt: cấm sáo rỗng, ép trade-off, ép decision. AI phải ra kết luận.",
+        previewTitle: "Direct Orders",
+        previewDesc: "Prompt ngắn, lệnh rõ, tiêu chí accept/reject dứt khoát.",
+        typoMeta: "1 goal only", shapeMeta: "Hard constraints", depthMeta: "Binary decisions", accentMeta: "Cut the fat",
+        kitNote: "Dùng khi bạn cần AI dừng giải thích dài và đưa phương án chốt.",
+        tokens: { radius: "Command", border: "No fluff", type: "Decide now", depth: "Kill options" },
         vars: { bg:"#f4f0e6", bg2:"#e7e0d0", surface:"#fff8e8", surface2:"#ffe56b", text:"#111111", muted:"rgba(17,17,17,.72)", primary:"#ffd60a", secondary:"#ff4d6d", accent:"#111111", border:"#111111", inkSoft:"rgba(17,17,17,.05)" }
       },
       {
         id: "neo-candy", name: "Neo Candy", group: "Brutal", style: "neobrutal",
         description: "Neo-brutalism tươi, bóng cứng, màu kẹo",
         swatch: "linear-gradient(135deg,#ff6bcb,#7cfbff)",
-        heroTitle: "LOUD COLORS. FRIENDLY EDGES.",
-        heroLead: "Neo-brutalism hiện đại: border dày, màu kẹo, shadow hard nhưng bo góc dễ gần hơn brutal cổ điển.",
-        previewTitle: "Neo-Brutalism",
-        previewDesc: "Vui, rõ, có outline mạnh và nhịp điệu pop.",
-        typoMeta: "Syne + Space Grotesk", shapeMeta: "Rounded hard borders", depthMeta: "Chunky offset", accentMeta: "Candy blocks",
-        kitNote: "Hợp landing playful, creator tools, gen-z brands.",
-        tokens: { radius: "18px", border: "3px ink", type: "Syne / Grotesk", depth: "chunky offset" },
+        heroTitle: "LOUD PROMPTS. CLEAR WINS.",
+        heroLead: "Playful nhưng chặt: templates màu mè, rules cứng, output bám checklist.",
+        previewTitle: "Template Power",
+        previewDesc: "Pattern library để tái sử dụng mỗi ngày mà không bị loãng.",
+        typoMeta: "Reusable blocks", shapeMeta: "Checkboxes", depthMeta: "Score rubrics", accentMeta: "Fast loops",
+        kitNote: "Hợp brainstorm + content sprint + social/docs vui nhưng có khung.",
+        tokens: { radius: "Templates", border: "Rules on", type: "Rubric", depth: "Loop x3" },
         vars: { bg:"#fff4fb", bg2:"#ffe8f5", surface:"#ffffff", surface2:"#ffd0ef", text:"#171417", muted:"rgba(23,20,23,.7)", primary:"#7cfbff", secondary:"#b8f24a", accent:"#ff6bcb", border:"#171417", inkSoft:"rgba(23,20,23,.05)" }
       },
       {
         id: "soft-clay", name: "Soft Clay", group: "Soft UI", style: "clay",
         description: "Claymorphism, nút viên thuốc, bóng êm",
         swatch: "linear-gradient(135deg,#ff9ec8,#c5b0ff)",
-        heroTitle: "Soft enough to squeeze.",
-        heroLead: "Clay UI: bo cực tròn, không border cứng, shadow êm như đất sét. Toàn page trở nên friendly và tactile.",
-        previewTitle: "Claymorphism",
-        previewDesc: "Form mọng, nút pill, depth mềm như 3D clay.",
-        typoMeta: "Outfit + DM Sans", shapeMeta: "Extra-round pills", depthMeta: "Soft dual shadow", accentMeta: "Candy glow",
-        kitNote: "Buttons thành pill, cards phồng nhẹ, rất khác brutal/terminal.",
-        tokens: { radius: "34px", border: "none", type: "Outfit / DM Sans", depth: "soft clay" },
+        heroTitle: "AI dịu dàng, vẫn ra việc.",
+        heroLead: "Mode học và coaching: giải thích dễ nuốt, bước nhỏ, ít stress, vẫn có bài tập.",
+        previewTitle: "Coach Mode",
+        previewDesc: "ELI5 → example → drill → feedback. Tốt cho onboarding và học skill.",
+        typoMeta: "Tiny steps", shapeMeta: "Safe sandbox", depthMeta: "Guided drills", accentMeta: "Kind critique",
+        kitNote: "Nhờ AI dạy bạn làm, không chỉ làm thay bạn.",
+        tokens: { radius: "ELI5", border: "Practice", type: "Feedback", depth: "Confidence" },
         vars: { bg:"#f7f1ff", bg2:"#efe7ff", surface:"#f9f5ff", surface2:"#ffffff", text:"#3a2d55", muted:"rgba(58,45,85,.68)", primary:"#b089ff", secondary:"#7ed7ff", accent:"#ff9ec8", border:"rgba(58,45,85,.06)", inkSoft:"rgba(255,255,255,.7)" }
       },
       {
         id: "neuro-night", name: "Neuro Night", group: "Soft UI", style: "neuro",
         description: "Neumorphism tối, embossed controls",
         swatch: "linear-gradient(135deg,#2a3142,#78a6ff)",
-        heroTitle: "Pressed into the surface.",
-        heroLead: "Neumorphism: component như được dập nổi/dập chìm trên cùng một mặt phẳng. Không glass, không flat.",
-        previewTitle: "Neumorphism",
-        previewDesc: "Embossed cards, inset buttons, monomaterial depth.",
-        typoMeta: "Outfit + Inter", shapeMeta: "Soft embossed", depthMeta: "Inset/outset only", accentMeta: "Subtle rim light",
-        kitNote: "Primary button trở thành inset control, rất đặc trưng neuro UI.",
-        tokens: { radius: "28px", border: "none", type: "Outfit / Inter", depth: "emboss / inset" },
+        heroTitle: "Pressed into a system.",
+        heroLead: "Biến AI thành operating cadence: daily brief, review loop, memory notes, SOP.",
+        previewTitle: "Systemizing",
+        previewDesc: "Tạo ritual dùng AI lặp lại được: intake → process → archive.",
+        typoMeta: "SOP first", shapeMeta: "Daily cadence", depthMeta: "Memory notes", accentMeta: "Review loop",
+        kitNote: "Dùng để build personal AI OS, không chỉ hỏi 1 shot.",
+        tokens: { radius: "SOP", border: "Cadence", type: "Memory", depth: "Review" },
         vars: { bg:"#1c212c", bg2:"#232a38", surface:"#232a38", surface2:"#2b3345", text:"#e8eefc", muted:"rgba(232,238,252,.68)", primary:"#78a6ff", secondary:"#6be0c5", accent:"#a7b5ff", border:"transparent", inkSoft:"rgba(255,255,255,.03)" }
       },
       {
         id: "terminal-green", name: "Terminal Green", group: "Developer", style: "terminal",
         description: "CRT mono, scanline, command-line UI",
         swatch: "linear-gradient(135deg,#001a00,#33ff66)",
-        heroTitle: "boot theme --style terminal",
-        heroLead: "Toàn bộ page biến thành terminal: mono type, scanlines, lowercase commands, không shadow marketing.",
-        previewTitle: "Terminal / CRT",
-        previewDesc: "Monospace, dashed borders, prompt-like hierarchy.",
-        typoMeta: "IBM Plex Mono", shapeMeta: "0 radius blocks", depthMeta: "Flat CRT", accentMeta: "Scanlines",
-        kitNote: "Copy, buttons và headings đều nói giọng developer tool.",
-        tokens: { radius: "0px", border: "1px green line", type: "IBM Plex Mono", depth: "flat crt" },
+        heroTitle: "run prompt --strict --verify",
+        heroLead: "Developer mode: mono thinking, commands, tests, diffs, logs. Ít prose, nhiều signal.",
+        previewTitle: "CLI Brain",
+        previewDesc: "Yêu cầu patch, test plan, failure modes, và lệnh chạy được.",
+        typoMeta: "Commands", shapeMeta: "Diffs / patches", depthMeta: "Test plans", accentMeta: "Exit codes",
+        kitNote: "Ephemeral rule: no drive-by refactors. Chỉ đụng code liên quan.",
+        tokens: { radius: "patch", border: "tests", type: "logs", depth: "repro" },
         vars: { bg:"#020803", bg2:"#06140a", surface:"rgba(0,0,0,.35)", surface2:"rgba(51,255,102,.08)", text:"#b6ffc8", muted:"rgba(182,255,200,.7)", primary:"#33ff66", secondary:"#9effb0", accent:"#18c947", border:"rgba(51,255,102,.35)", inkSoft:"rgba(51,255,102,.06)" }
       },
       {
         id: "hacker-amber", name: "Hacker Amber", group: "Developer", style: "terminal",
         description: "Amber phosphor terminal cổ",
         swatch: "linear-gradient(135deg,#140d00,#ffb000)",
-        heroTitle: "access granted: amber ui",
-        heroLead: "Retro phosphor amber. Vẫn terminal, nhưng nóng hơn, cổ hơn, mang cảm giác máy cổ.",
-        previewTitle: "Amber Terminal",
-        previewDesc: "CRT amber, command aesthetic, no soft UI.",
-        typoMeta: "IBM Plex Mono", shapeMeta: "Sharp blocks", depthMeta: "Flat phosphor", accentMeta: "Amber scan",
-        kitNote: "Cùng style engine terminal nhưng tone hoàn toàn khác green.",
-        tokens: { radius: "0px", border: "1px amber", type: "IBM Plex Mono", depth: "phosphor flat" },
+        heroTitle: "run prompt --strict --verify",
+        heroLead: "Developer mode: mono thinking, commands, tests, diffs, logs. Ít prose, nhiều signal.",
+        previewTitle: "CLI Brain",
+        previewDesc: "Yêu cầu patch, test plan, failure modes, và lệnh chạy được.",
+        typoMeta: "Commands", shapeMeta: "Diffs / patches", depthMeta: "Test plans", accentMeta: "Exit codes",
+        kitNote: "Ephemeral rule: no drive-by refactors. Chỉ đụng code liên quan.",
+        tokens: { radius: "patch", border: "tests", type: "logs", depth: "repro" },
         vars: { bg:"#120c02", bg2:"#1b1204", surface:"rgba(0,0,0,.35)", surface2:"rgba(255,176,0,.08)", text:"#ffd27a", muted:"rgba(255,210,122,.7)", primary:"#ffb000", secondary:"#ffd27a", accent:"#ff8a00", border:"rgba(255,176,0,.35)", inkSoft:"rgba(255,176,0,.06)" }
       },
       {
         id: "editorial-gold", name: "Editorial Gold", group: "Luxury", style: "editorial",
         description: "Serif sang, editorial layout, luxury quiet",
         swatch: "linear-gradient(135deg,#111,#d4af37)",
-        heroTitle: "Quiet luxury, loud taste.",
-        heroLead: "Editorial luxury: serif display, chữ nghiêng, nút uppercase mảnh, nhịp tạp chí cao cấp.",
-        previewTitle: "Editorial Luxury",
-        previewDesc: "Serif voice, thin rules, refined spacing, gold accents.",
-        typoMeta: "Playfair + DM Sans", shapeMeta: "Near-square refined", depthMeta: "Soft print shadow", accentMeta: "Hairline rules",
-        kitNote: "Buttons thành quiet luxury CTA, không còn gradient kẹo.",
-        tokens: { radius: "4px", border: "hairline gold", type: "Playfair Display", depth: "print shadow" },
+        heroTitle: "Write like an editor-in-chief.",
+        heroLead: "Mode nội dung cao cấp: thesis rõ, nhịp câu, cắt mỡ, giữ taste.",
+        previewTitle: "Editorial Craft",
+        previewDesc: "Outline sắc, voice consistent, punchline mạnh, zero fluff.",
+        typoMeta: "Thesis", shapeMeta: "Voice lock", depthMeta: "Cut 30%", accentMeta: "Final polish",
+        kitNote: "Bảo AI: giữ fact, nâng density, viết như người đã nghĩ kỹ.",
+        tokens: { radius: "Thesis", border: "Voice", type: "Density", depth: "Polish" },
         vars: { bg:"#120e0a", bg2:"#1c1510", surface:"rgba(255,247,232,.04)", surface2:"rgba(212,175,55,.08)", text:"#f7efdf", muted:"rgba(247,239,223,.7)", primary:"#d4af37", secondary:"#f0d78c", accent:"#a67c2d", border:"rgba(212,175,55,.28)", inkSoft:"rgba(255,247,232,.05)" }
       },
       {
         id: "magazine-ink", name: "Magazine Ink", group: "Luxury", style: "magazine",
         description: "Bố cục tạp chí, headline khổ lớn",
         swatch: "linear-gradient(135deg,#111827,#f43f5e)",
-        heroTitle: "BIG TYPE. BIGGER ATTITUDE.",
-        heroLead: "Magazine layout: headline chiếm sóng, hero chia 2 cột, CTA như cover story.",
-        previewTitle: "Magazine Bold",
-        previewDesc: "Editorial grid, oversized type, cover-like hero art.",
-        typoMeta: "Syne + Inter", shapeMeta: "Cover blocks", depthMeta: "Flat print + panels", accentMeta: "Slash graphics",
-        kitNote: "Hero đổi layout 2 cột. Đây là style change thật, không chỉ màu.",
-        tokens: { radius: "12px", border: "1px ink", type: "Syne / Inter", depth: "print panels" },
+        heroTitle: "BIG IDEA. TIGHT STORY.",
+        heroLead: "Cover-story thinking: 1 ý lớn, headline mạnh, supporting points gọn.",
+        previewTitle: "Story Framing",
+        previewDesc: "Hook → tension → insight → CTA. Hợp pitch, launch, landing copy.",
+        typoMeta: "One big idea", shapeMeta: "Hook first", depthMeta: "Proof points", accentMeta: "CTA sharp",
+        kitNote: "Nhờ AI viết headline 10 cái, rồi mới expand winner.",
+        tokens: { radius: "Hook", border: "Proof", type: "Narrative", depth: "CTA" },
         vars: { bg:"#f6f1ea", bg2:"#efe5d8", surface:"#fffdf9", surface2:"#ffffff", text:"#171417", muted:"rgba(23,20,23,.7)", primary:"#111827", secondary:"#f43f5e", accent:"#f59e0b", border:"rgba(23,20,23,.12)", inkSoft:"rgba(23,20,23,.04)" }
       },
       {
         id: "vapor-miami", name: "Vapor Miami", group: "Retro", style: "vapor",
         description: "Vaporwave grid, neon sunset, lowercase",
         swatch: "linear-gradient(135deg,#ff71ce,#01cdfe)",
-        heroTitle: "aesthetic overload.exe",
-        heroLead: "Vaporwave: gradient chữ, horizon grid, neon hồng-cyan, giọng lowercase internet cổ.",
-        previewTitle: "Vaporwave",
-        previewDesc: "Retro-futurist gradients, grid floor, neon chrome mood.",
-        typoMeta: "Syne + Outfit", shapeMeta: "Soft neon panels", depthMeta: "Glow haze", accentMeta: "Horizon grid",
-        kitNote: "Heading dùng gradient text. Rất khác swiss hay terminal.",
-        tokens: { radius: "20px", border: "2px neon", type: "Syne / Outfit", depth: "neon haze" },
+        heroTitle: "aesthetic prompts.exe",
+        heroLead: "Mode sáng tạo phóng: image prompts, weird ideas, remix culture, lateral jumps.",
+        previewTitle: "Creative Divergence",
+        previewDesc: "Tạo nhiều hướng lạ trước, chắt lọc sau. Đừng tối ưu sớm.",
+        typoMeta: "10 variants", shapeMeta: "Weird / useful", depthMeta: "Remix refs", accentMeta: "Converge later",
+        kitNote: "Dùng “more surprising but usable” thay vì “better”.",
+        tokens: { radius: "Diverge", border: "Remix", type: "Select", depth: "Converge" },
         vars: { bg:"#1a1030", bg2:"#2a1450", surface:"rgba(255,255,255,.08)", surface2:"rgba(255,113,206,.12)", text:"#ffe9ff", muted:"rgba(255,233,255,.74)", primary:"#01cdfe", secondary:"#05ffa1", accent:"#ff71ce", border:"rgba(1,205,254,.35)", inkSoft:"rgba(255,255,255,.06)" }
       },
       {
         id: "y2k-bubble", name: "Y2K Bubble", group: "Retro", style: "y2k",
         description: "Bóng kính chrome, bubble buttons, 2000s",
         swatch: "linear-gradient(135deg,#f9a8d4,#a5b4fc)",
-        heroTitle: "click me, i'm glossy",
-        heroLead: "Y2K bubble UI: highlight bóng, nút gel, chấm tròn trang trí, cảm giác icon pack năm 2000.",
-        previewTitle: "Y2K / Bubble",
-        previewDesc: "Glossy gradients, gel buttons, playful stickers.",
-        typoMeta: "Syne + Outfit", shapeMeta: "Bubble pills", depthMeta: "Gloss + sticker", accentMeta: "Confetti dots",
-        kitNote: "Primary button thành gel bubble. Page trông như sticker sheet.",
-        tokens: { radius: "28px", border: "2px glossy", type: "Syne / Outfit", depth: "gel gloss" },
+        heroTitle: "shiny prompts, sticky results",
+        heroLead: "Mode nhanh-vui-có-output: templates bóng bẩy cho social, launch, demo scripts.",
+        previewTitle: "Snappy Outputs",
+        previewDesc: "Short posts, catchy lines, demo scripts, snackable explainers.",
+        typoMeta: "Short form", shapeMeta: "Hooks galore", depthMeta: "Save pack", accentMeta: "Repurpose",
+        kitNote: "1 idea → 5 formats: tweet, thread, script, carousel, email.",
+        tokens: { radius: "Hooks", border: "Formats", type: "Repurpose", depth: "Ship pack" },
         vars: { bg:"#f8e9ff", bg2:"#e7ddff", surface:"rgba(255,255,255,.7)", surface2:"rgba(255,255,255,.9)", text:"#3b2760", muted:"rgba(59,39,96,.7)", primary:"#8b5cf6", secondary:"#38bdf8", accent:"#f472b6", border:"rgba(255,255,255,.85)", inkSoft:"rgba(255,255,255,.55)" }
       },
       {
         id: "cyber-hud", name: "Cyber HUD", group: "Futuristic", style: "cyber",
         description: "HUD angles, clip-path, grid tech",
         swatch: "linear-gradient(135deg,#00f0ff,#ff2bd6)",
-        heroTitle: "SYSTEM ONLINE // HUD MODE",
-        heroLead: "Cyber HUD: clip-path góc vát, grid radar, glow edge. Component trông như interface phi thuyền.",
-        previewTitle: "Cyber HUD",
-        previewDesc: "Angular frames, technical grid, neon signal edges.",
-        typoMeta: "Space Grotesk", shapeMeta: "Clipped angles", depthMeta: "Neon edge glow", accentMeta: "Radar grid",
-        kitNote: "Cards và buttons bị cắt góc. Layout mang cảm giác HUD.",
-        tokens: { radius: "6px clipped", border: "1px neon", type: "Space Grotesk", depth: "signal glow" },
+        heroTitle: "AGENT MODE // TOOLS ONLINE",
+        heroLead: "Agentic workflow: plan → tool calls → observe → correct. Nhìn AI như HUD điều phối.",
+        previewTitle: "Agent Ops",
+        previewDesc: "Chia task, giao tool, yêu cầu logs, stop conditions, handoff sạch.",
+        typoMeta: "Plan graph", shapeMeta: "Tool contracts", depthMeta: "Stop rules", accentMeta: "Handoffs",
+        kitNote: "Luôn định nghĩa done condition và forbidden actions cho agent.",
+        tokens: { radius: "Plan", border: "Tools", type: "Observe", depth: "Stop" },
         vars: { bg:"#050815", bg2:"#0b1230", surface:"rgba(0,0,0,.35)", surface2:"rgba(0,240,255,.08)", text:"#d7f7ff", muted:"rgba(215,247,255,.7)", primary:"#00f0ff", secondary:"#7d5cff", accent:"#ff2bd6", border:"rgba(0,240,255,.35)", inkSoft:"rgba(0,240,255,.06)" }
       },
       {
         id: "industrial-steel", name: "Industrial Steel", group: "Futuristic", style: "industrial",
         description: "Kim loại, gạch chéo, utility labels",
         swatch: "linear-gradient(135deg,#9aa3ad,#4b5563)",
-        heroTitle: "BUILT LIKE EQUIPMENT.",
-        heroLead: "Industrial steel: utility labels, metallic panels, diagonal hazards, uppercase everything.",
-        previewTitle: "Industrial",
-        previewDesc: "Metal panels, caution rhythm, equipment labeling.",
-        typoMeta: "Archivo Black + Grotesk", shapeMeta: "Utility panels", depthMeta: "Inset metal", accentMeta: "Diagonal hatch",
-        kitNote: "Trang trông như control panel hơn là marketing site.",
-        tokens: { radius: "8px", border: "2px steel", type: "Archivo Black", depth: "metal inset" },
+        heroTitle: "BUILT FOR RELIABILITY.",
+        heroLead: "Ops mode: runbooks, incident notes, checklists, rollback plans. AI như đồng đội SRE.",
+        previewTitle: "Runbook AI",
+        previewDesc: "Triaging, RCA, preventive actions, communication templates.",
+        typoMeta: "Severity", shapeMeta: "Runbook steps", depthMeta: "Rollback", accentMeta: "Comms",
+        kitNote: "Ép AI tách symptom / cause / fix / prevention.",
+        tokens: { radius: "Triage", border: "RCA", type: "Fix", depth: "Prevent" },
         vars: { bg:"#12151a", bg2:"#1b2129", surface:"rgba(255,255,255,.05)", surface2:"rgba(255,255,255,.08)", text:"#e5e7eb", muted:"rgba(229,231,235,.68)", primary:"#9aa3ad", secondary:"#f59e0b", accent:"#cbd5e1", border:"rgba(148,163,184,.35)", inkSoft:"rgba(255,255,255,.04)" }
       },
       {
         id: "swiss-grid", name: "Swiss Grid", group: "Minimal", style: "swiss",
         description: "International Typographic Style, grid lạnh",
         swatch: "linear-gradient(135deg,#e11d48,#111)",
-        heroTitle: "Form follows grid.",
-        heroLead: "Swiss style: zero decoration noise, sharp grid, red accent, type hierarchy lạnh và chính xác.",
-        previewTitle: "Swiss / International",
-        previewDesc: "Strict grid, no fluff, functional type scale.",
-        typoMeta: "Inter only", shapeMeta: "0 radius modules", depthMeta: "Flat modular", accentMeta: "Signal red",
-        kitNote: "Stats dính thành module grid. Rất graphic design cổ điển.",
-        tokens: { radius: "0px", border: "1px modular", type: "Inter", depth: "flat modules" },
+        heroTitle: "Clarity is the feature.",
+        heroLead: "Minimal prompting: ít chữ, nhiều signal. Grid tư duy gọn, không trang trí.",
+        previewTitle: "Signal > Noise",
+        previewDesc: "Xóa adjective thừa. Giữ verbs, constraints, examples.",
+        typoMeta: "Less text", shapeMeta: "More structure", depthMeta: "Only essentials", accentMeta: "White space",
+        kitNote: "Nếu prompt > 1 màn hình, bạn đang dump context chứ chưa design brief.",
+        tokens: { radius: "Cut", border: "Structure", type: "Essentials", depth: "Clarity" },
         vars: { bg:"#f5f5f5", bg2:"#ebebeb", surface:"#ffffff", surface2:"#fafafa", text:"#111111", muted:"rgba(17,17,17,.64)", primary:"#e11d48", secondary:"#111111", accent:"#e11d48", border:"rgba(17,17,17,.14)", inkSoft:"rgba(17,17,17,.04)" }
       },
       {
         id: "paper-sketch", name: "Paper Sketch", group: "Minimal", style: "paper",
         description: "Giấy sketch, nét mực, bóng stamp",
         swatch: "linear-gradient(135deg,#f6efe4,#2b241c)",
-        heroTitle: "Designed on paper first.",
-        heroLead: "Paper sketch: nền giấy, nét mực, shadow như con dấu. Cảm giác handmade/wireframe cao cấp.",
-        previewTitle: "Paper / Sketch",
-        previewDesc: "Ink borders, paper grain, stamp shadows.",
-        typoMeta: "Playfair + DM Sans", shapeMeta: "Notebook cards", depthMeta: "Stamp offset", accentMeta: "Paper grain",
-        kitNote: "Toàn UI như sketch notes dán lên desk.",
-        tokens: { radius: "16px", border: "2px ink", type: "Playfair / DM Sans", depth: "stamp offset" },
+        heroTitle: "Sketch the thinking first.",
+        heroLead: "Paper mode: outline tay, AI hỗ trợ mở rộng. Giữ ownership ý tưởng.",
+        previewTitle: "Thinking Traces",
+        previewDesc: "Bullets thô → AI expand → bạn edit taste → lock final.",
+        typoMeta: "Hand outline", shapeMeta: "Expand carefully", depthMeta: "Human taste", accentMeta: "Version notes",
+        kitNote: "Đừng bắt đầu từ blank với AI. Bắt đầu từ 5 bullet của bạn.",
+        tokens: { radius: "Outline", border: "Expand", type: "Edit", depth: "Lock" },
         vars: { bg:"#f3ecdf", bg2:"#e8decc", surface:"#fffdf8", surface2:"#fff7ea", text:"#2b241c", muted:"rgba(43,36,28,.7)", primary:"#2b241c", secondary:"#8b6914", accent:"#b08968", border:"#2b241c", inkSoft:"rgba(43,36,28,.04)" }
       },
       {
         id: "organic-grove", name: "Organic Grove", group: "Nature", style: "organic",
         description: "Bo asym, serif ấm, nhịp organic",
         swatch: "linear-gradient(135deg,#3f8f6b,#d7f26c)",
-        heroTitle: "Grown, not manufactured.",
-        heroLead: "Organic nature: bo góc bất đối xứng, serif ấm, gradient như tán lá. Layout thở chậm hơn SaaS.",
-        previewTitle: "Organic Nature",
-        previewDesc: "Asymmetric radii, leafy depth, calm editorial nature.",
-        typoMeta: "Playfair + DM Sans", shapeMeta: "Asymmetric organic", depthMeta: "Soft canopy", accentMeta: "Leaf light",
-        kitNote: "Cards dùng bo góc lệch. Nhịp hoàn toàn khác swiss/brutal.",
-        tokens: { radius: "40/18 asymmetric", border: "soft natural", type: "Playfair / DM Sans", depth: "canopy soft" },
+        heroTitle: "Grow understanding, then harvest.",
+        heroLead: "Learning garden: AI giúp trồng mental models, không nhồi keyword.",
+        previewTitle: "Deep Learning Loop",
+        previewDesc: "Concept → analogy → counterexample → practice → reflection.",
+        typoMeta: "Mental models", shapeMeta: "Analogies", depthMeta: "Counterexamples", accentMeta: "Reflection",
+        kitNote: "Hỏi AI những gì dễ hiểu nhầm, không chỉ định nghĩa.",
+        tokens: { radius: "Model", border: "Analogy", type: "Practice", depth: "Reflect" },
         vars: { bg:"#eef8f0", bg2:"#dff1e4", surface:"rgba(255,255,255,.78)", surface2:"rgba(255,255,255,.92)", text:"#1f3b2e", muted:"rgba(31,59,46,.68)", primary:"#2f9e6b", secondary:"#8fd14f", accent:"#d7f26c", border:"rgba(31,59,46,.1)", inkSoft:"rgba(255,255,255,.55)" }
       },
       {
@@ -1502,38 +1641,38 @@
         description: "Clean product marketing, blue system",
         swatch: "linear-gradient(135deg,#2563eb,#60a5fa)",
         heroTitle: "Ship product stories faster.",
-        heroLead: "Corporate SaaS chuẩn mực: clean cards, blue system, soft elevation, conversion-focused hierarchy.",
-        previewTitle: "SaaS Product",
-        previewDesc: "Clean elevation, trustworthy blue, conversion UI.",
-        typoMeta: "Outfit + Inter", shapeMeta: "Product rounded", depthMeta: "Soft elevation", accentMeta: "Sky wash",
-        kitNote: "Gần marketing site thật của B2B SaaS.",
-        tokens: { radius: "18px", border: "1px soft", type: "Outfit / Inter", depth: "elevation" },
+        heroLead: "Product mode: PRD, user stories, release notes, support macros, growth experiments.",
+        previewTitle: "Product Ops",
+        previewDesc: "Từ insight → requirement → experiment → metric.",
+        typoMeta: "User job", shapeMeta: "Requirements", depthMeta: "Metrics", accentMeta: "Experiment",
+        kitNote: "Nhờ AI viết PRD ngắn + test plan + release note cùng lúc.",
+        tokens: { radius: "PRD", border: "Stories", type: "Metrics", depth: "Release" },
         vars: { bg:"#f5f8ff", bg2:"#eaf0ff", surface:"rgba(255,255,255,.84)", surface2:"#ffffff", text:"#0f172a", muted:"rgba(15,23,42,.66)", primary:"#2563eb", secondary:"#0ea5e9", accent:"#6366f1", border:"rgba(15,23,42,.08)", inkSoft:"rgba(37,99,235,.05)" }
       },
       {
         id: "material-you", name: "Material You", group: "Product", style: "material",
         description: "Material tonal surfaces, pill CTAs",
         swatch: "linear-gradient(135deg,#6750a4,#e8def8)",
-        heroTitle: "Tonal surfaces, friendly motion.",
-        heroLead: "Material You: tonal surfaces, pill buttons, soft elevation, không hard border.",
-        previewTitle: "Material Design",
-        previewDesc: "Tonal layers, pill CTAs, dynamic color feel.",
-        typoMeta: "Outfit + Inter", shapeMeta: "Tonal pills", depthMeta: "Material elevation", accentMeta: "Tonal fills",
-        kitNote: "Bỏ border cứng, chuyển sang tonal layering.",
-        tokens: { radius: "28px", border: "none tonal", type: "Outfit / Inter", depth: "tonal elevation" },
+        heroTitle: "Tonal prompts, friendly systems.",
+        heroLead: "Design-system thinking cho AI: tokens, patterns, consistency, reusable components of thought.",
+        previewTitle: "Pattern Library",
+        previewDesc: "Biến prompt hay thành component tái sử dụng trong team.",
+        typoMeta: "Tokens", shapeMeta: "Patterns", depthMeta: "Consistency", accentMeta: "Team pack",
+        kitNote: "Tạo library: research, coding, writing, support — mỗi loại 1 template.",
+        tokens: { radius: "Tokenize", border: "Patternize", type: "Share", depth: "Adopt" },
         vars: { bg:"#fffbfe", bg2:"#f3edf7", surface:"#ece6f0", surface2:"#e8def8", text:"#1c1b1f", muted:"rgba(28,27,31,.68)", primary:"#6750a4", secondary:"#625b71", accent:"#7d5260", border:"transparent", inkSoft:"rgba(103,80,164,.06)" }
       },
       {
         id: "pop-comic", name: "Pop Comic", group: "Expressive", style: "pop",
         description: "Halftone, outline dày, comic shout",
         swatch: "linear-gradient(135deg,#ffe600,#ff3b5c)",
-        heroTitle: "WHAM. BOLD. UNMISSABLE.",
-        heroLead: "Pop art comic: halftone dots, thick ink outlines, shouty display type. Page như poster truyện tranh.",
-        previewTitle: "Pop Art / Comic",
-        previewDesc: "Halftone texture, thick ink, poster punch.",
-        typoMeta: "Archivo Black", shapeMeta: "Ink outlined bubbles", depthMeta: "Sticker offset", accentMeta: "Halftone dots",
-        kitNote: "Mọi thứ có viền mực dày và bóng sticker. Cực khác minimal.",
-        tokens: { radius: "24px", border: "4px ink", type: "Archivo Black", depth: "sticker offset" },
+        heroTitle: "WHAM. MEMORABLE PROMPTS.",
+        heroLead: "Mode biểu cảm: headline nổ, demo hài, pitch nhớ lâu. Vẫn phải có substance.",
+        previewTitle: "Memorable Delivery",
+        previewDesc: "Strong hooks, vivid examples, crisp takeaways.",
+        typoMeta: "Hook punch", shapeMeta: "Vivid example", depthMeta: "Takeaway", accentMeta: "Encore CTA",
+        kitNote: "Ép AI: 1 metaphor mạnh + 1 proof + 1 action.",
+        tokens: { radius: "Punch", border: "Proof", type: "Takeaway", depth: "CTA" },
         vars: { bg:"#fff36b", bg2:"#ffe600", surface:"#ffffff", surface2:"#ffe3ea", text:"#111111", muted:"rgba(17,17,17,.72)", primary:"#00a2ff", secondary:"#ffe600", accent:"#ff3b5c", border:"#111111", inkSoft:"rgba(17,17,17,.04)" }
       }
     ];

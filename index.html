@@ -4,22 +4,16 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>ThemeVerse Landing Page</title>
-    <meta
-      name="description"
-      content="Landing page with a rich modern theme menu and instant theme switching."
-    />
+    <meta name="description" content="Landing page with a rich modern theme menu and instant theme switching." />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
-      rel="stylesheet"
-    />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
     <style>
       :root {
         --bg: #0b1020;
-        --bg-2: #121938;
+        --bg2: #121938;
         --surface: rgba(255, 255, 255, 0.08);
-        --surface-2: rgba(255, 255, 255, 0.12);
+        --surface2: rgba(255, 255, 255, 0.12);
         --text: #f5f7ff;
         --muted: rgba(245, 247, 255, 0.72);
         --primary: #7c8cff;
@@ -27,436 +21,128 @@
         --accent: #ff7ad9;
         --border: rgba(255, 255, 255, 0.14);
         --shadow: 0 30px 90px rgba(0, 0, 0, 0.35);
-        --ring: 0 0 0 1px rgba(255, 255, 255, 0.08), 0 18px 60px rgba(0, 0, 0, 0.2);
+        --ring: 0 0 0 1px rgba(124, 140, 255, 0.14), 0 18px 60px rgba(0, 0, 0, 0.2);
+        --sidebarBg: rgba(9, 13, 31, 0.72);
+        --heroBg: linear-gradient(135deg, rgba(124, 140, 255, 0.15), rgba(255, 122, 217, 0.08));
+        --orbGradient: radial-gradient(circle, rgba(124, 140, 255, 0.42), transparent 68%);
+        --noiseOpacity: 0.34;
+        --noiseSize: 28px 28px;
+        --sidebarWidth: 320px;
+        --radiusHero: 34px;
+        --radiusCard: 24px;
+        --radiusItem: 18px;
+        --radiusPill: 999px;
+        --radiusButton: 16px;
+        --panelBlur: 18px;
+        --heroPadding: 30px;
+        --cardPadding: 20px;
+        --titleTransform: none;
+        --titleSpacing: -0.05em;
+        --titleStyle: normal;
+        --buttonTransform: none;
+        --buttonSpacing: 0.02em;
+        --orbSize: 380px;
+        --orbBlur: 34px;
+        --previewMin: 280px;
       }
 
-      * {
-        box-sizing: border-box;
-      }
-
-      html {
-        scroll-behavior: smooth;
-      }
-
+      * { box-sizing: border-box; }
+      html { scroll-behavior: smooth; }
       body {
         margin: 0;
         font-family: "Inter", system-ui, sans-serif;
         color: var(--text);
-        background:
-          radial-gradient(circle at top left, color-mix(in srgb, var(--primary) 28%, transparent), transparent 35%),
-          radial-gradient(circle at top right, color-mix(in srgb, var(--accent) 22%, transparent), transparent 30%),
-          linear-gradient(180deg, var(--bg), var(--bg-2));
+        background: linear-gradient(180deg, var(--bg), var(--bg2));
         min-height: 100vh;
         overflow-x: hidden;
       }
-
       body::before {
         content: "";
         position: fixed;
         inset: 0;
         pointer-events: none;
         background-image: radial-gradient(circle at 1px 1px, rgba(255, 255, 255, 0.08) 1px, transparent 0);
-        background-size: 28px 28px;
+        background-size: var(--noiseSize);
+        opacity: var(--noiseOpacity);
         mask-image: linear-gradient(180deg, rgba(0, 0, 0, 0.45), transparent 82%);
-        opacity: 0.35;
       }
-
+      body::after {
+        content: "";
+        position: fixed;
+        top: -60px;
+        right: -90px;
+        width: var(--orbSize);
+        height: var(--orbSize);
+        background: var(--orbGradient);
+        filter: blur(var(--orbBlur));
+        opacity: 0.9;
+        pointer-events: none;
+        z-index: -1;
+      }
       .shell {
         display: grid;
-        grid-template-columns: 320px 1fr;
+        grid-template-columns: var(--sidebarWidth) 1fr;
         min-height: 100vh;
       }
-
       .sidebar {
         position: sticky;
         top: 0;
         height: 100vh;
         padding: 24px;
         border-right: 1px solid var(--border);
-        background: color-mix(in srgb, var(--bg) 75%, black);
-        backdrop-filter: blur(18px);
+        background: var(--sidebarBg);
+        backdrop-filter: blur(var(--panelBlur));
         overflow: auto;
       }
-
-      .brand {
-        display: flex;
-        align-items: center;
-        gap: 12px;
-        margin-bottom: 20px;
-      }
-
-      .logo {
-        width: 44px;
-        height: 44px;
-        border-radius: 14px;
-        background: linear-gradient(135deg, var(--primary), var(--accent));
-        box-shadow: var(--shadow);
-      }
-
-      .brand h1,
-      .brand p {
-        margin: 0;
-      }
-
-      .brand h1 {
-        font-size: 18px;
-      }
-
-      .brand p {
-        font-size: 13px;
-        color: var(--muted);
-        margin-top: 3px;
-      }
-
-      .sidebar-card {
-        padding: 16px;
-        border: 1px solid var(--border);
-        border-radius: 20px;
-        background: var(--surface);
-        box-shadow: var(--ring);
-        margin-bottom: 16px;
-      }
-
-      .sidebar-card h2 {
-        margin: 0 0 10px;
-        font-size: 15px;
-      }
-
-      .search {
-        width: 100%;
-        border: 1px solid var(--border);
-        background: rgba(255, 255, 255, 0.06);
-        color: var(--text);
-        padding: 12px 14px;
-        border-radius: 14px;
-        outline: none;
-      }
-
-      .search::placeholder {
-        color: color-mix(in srgb, var(--muted) 90%, white);
-      }
-
-      .group {
-        margin-top: 16px;
-      }
-
-      .group-title {
-        margin: 0 0 10px;
-        font-size: 12px;
-        text-transform: uppercase;
-        letter-spacing: 0.12em;
-        color: var(--muted);
-      }
-
-      .theme-list {
-        display: grid;
-        gap: 10px;
-      }
-
-      .theme-item {
-        width: 100%;
-        border: 1px solid transparent;
-        background: var(--surface);
-        color: var(--text);
-        text-align: left;
-        border-radius: 18px;
-        padding: 12px;
-        display: grid;
-        grid-template-columns: 44px 1fr auto;
-        align-items: center;
-        gap: 12px;
-        cursor: pointer;
-        transition: transform 0.2s ease, border-color 0.2s ease, background 0.2s ease;
-      }
-
-      .theme-item:hover {
-        transform: translateY(-1px);
-        border-color: color-mix(in srgb, var(--primary) 55%, white);
-        background: var(--surface-2);
-      }
-
-      .theme-item.is-active {
-        border-color: color-mix(in srgb, var(--primary) 70%, white);
-        box-shadow: 0 0 0 1px color-mix(in srgb, var(--primary) 40%, transparent), var(--shadow);
-      }
-
-      .swatch {
-        width: 44px;
-        height: 44px;
-        border-radius: 14px;
-        background: var(--preview, linear-gradient(135deg, var(--primary), var(--accent)));
-        box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.18);
-      }
-
-      .theme-item strong {
-        display: block;
-        font-size: 14px;
-        margin-bottom: 3px;
-      }
-
-      .theme-item span {
-        display: block;
-        color: var(--muted);
-        font-size: 12px;
-      }
-
-      .badge {
-        font-size: 11px;
-        color: var(--text);
-        padding: 6px 9px;
-        border-radius: 999px;
-        background: rgba(255, 255, 255, 0.08);
-      }
-
-      .main {
-        padding: 28px;
-      }
-
-      .hero {
-        border: 1px solid var(--border);
-        border-radius: 34px;
-        background:
-          linear-gradient(135deg, color-mix(in srgb, var(--surface) 60%, transparent), transparent),
-          rgba(255, 255, 255, 0.04);
-        backdrop-filter: blur(22px);
-        padding: 30px;
-        box-shadow: var(--shadow);
-        position: relative;
-        overflow: hidden;
-      }
-
-      .hero::after {
-        content: "";
-        position: absolute;
-        inset: auto -12% -30% auto;
-        width: 320px;
-        height: 320px;
-        border-radius: 50%;
-        background: radial-gradient(circle, color-mix(in srgb, var(--accent) 40%, transparent), transparent 68%);
-        filter: blur(10px);
-      }
-
-      .hero-top {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        gap: 16px;
-        flex-wrap: wrap;
-      }
-
-      .pill {
-        display: inline-flex;
-        align-items: center;
-        gap: 8px;
-        padding: 10px 14px;
-        border-radius: 999px;
-        border: 1px solid var(--border);
-        background: rgba(255, 255, 255, 0.06);
-        color: var(--muted);
-        font-size: 13px;
-      }
-
-      .hero h2 {
-        margin: 18px 0 14px;
-        font-size: clamp(38px, 6vw, 72px);
-        line-height: 0.95;
-        letter-spacing: -0.05em;
-        max-width: 12ch;
-      }
-
-      .hero p {
-        margin: 0;
-        max-width: 62ch;
-        color: var(--muted);
-        font-size: 16px;
-        line-height: 1.7;
-      }
-
-      .actions {
-        display: flex;
-        gap: 12px;
-        flex-wrap: wrap;
-        margin-top: 24px;
-      }
-
-      .btn {
-        border: 0;
-        padding: 13px 18px;
-        border-radius: 16px;
-        font: inherit;
-        cursor: pointer;
-        text-decoration: none;
-        display: inline-flex;
-        align-items: center;
-        gap: 10px;
-      }
-
-      .btn-primary {
-        background: linear-gradient(135deg, var(--primary), var(--accent));
-        color: white;
-        box-shadow: 0 16px 40px color-mix(in srgb, var(--primary) 30%, transparent);
-      }
-
-      .btn-ghost {
-        color: var(--text);
-        border: 1px solid var(--border);
-        background: rgba(255, 255, 255, 0.05);
-      }
-
-      .grid {
-        display: grid;
-        grid-template-columns: repeat(12, 1fr);
-        gap: 18px;
-        margin-top: 18px;
-      }
-
-      .card {
-        border: 1px solid var(--border);
-        border-radius: 24px;
-        background: var(--surface);
-        backdrop-filter: blur(20px);
-        padding: 20px;
-        box-shadow: var(--ring);
-      }
-
-      .stats {
-        grid-column: span 12;
-        display: grid;
-        grid-template-columns: repeat(4, 1fr);
-        gap: 16px;
-      }
-
-      .stat strong {
-        display: block;
-        font-size: 30px;
-        margin-bottom: 6px;
-      }
-
-      .stat span {
-        color: var(--muted);
-        font-size: 13px;
-      }
-
-      .preview {
-        grid-column: span 5;
-        min-height: 280px;
-        background:
-          linear-gradient(140deg, color-mix(in srgb, var(--primary) 30%, transparent), transparent 55%),
-          linear-gradient(320deg, color-mix(in srgb, var(--accent) 28%, transparent), transparent 40%),
-          var(--surface);
-      }
-
-      .preview-stack {
-        margin-top: 18px;
-        display: grid;
-        gap: 12px;
-      }
-
-      .mini-row {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        gap: 12px;
-        padding: 14px;
-        border-radius: 18px;
-        background: rgba(255, 255, 255, 0.06);
-        border: 1px solid var(--border);
-      }
-
-      .mini-row strong {
-        display: block;
-        font-size: 14px;
-      }
-
-      .mini-row span {
-        display: block;
-        color: var(--muted);
-        font-size: 12px;
-      }
-
-      .features {
-        grid-column: span 7;
-        display: grid;
-        gap: 16px;
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-      }
-
-      .feature h3 {
-        margin: 0 0 10px;
-        font-size: 16px;
-      }
-
-      .feature p {
-        margin: 0;
-        color: var(--muted);
-        line-height: 1.7;
-        font-size: 14px;
-      }
-
-      .footer-cta {
-        margin-top: 18px;
-        display: grid;
-        grid-template-columns: repeat(12, 1fr);
-        gap: 18px;
-      }
-
-      .cta {
-        grid-column: span 12;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        gap: 16px;
-        flex-wrap: wrap;
-        background: linear-gradient(135deg, color-mix(in srgb, var(--primary) 18%, transparent), color-mix(in srgb, var(--accent) 14%, transparent));
-      }
-
-      .cta h3,
-      .cta p {
-        margin: 0;
-      }
-
-      .cta p {
-        color: var(--muted);
-        margin-top: 6px;
-      }
-
-      @media (max-width: 1100px) {
-        .shell {
-          grid-template-columns: 1fr;
-        }
-
-        .sidebar {
-          position: relative;
-          height: auto;
-          border-right: 0;
-          border-bottom: 1px solid var(--border);
-        }
-
-        .stats,
-        .preview,
-        .features {
-          grid-column: span 12;
-        }
-      }
-
-      @media (max-width: 720px) {
-        .main,
-        .sidebar {
-          padding: 18px;
-        }
-
-        .stats {
-          grid-template-columns: repeat(2, 1fr);
-        }
-
-        .features {
-          grid-template-columns: 1fr;
-        }
-
-        .hero {
-          padding: 22px;
-        }
-      }
+      .brand { display: flex; align-items: center; gap: 12px; margin-bottom: 20px; }
+      .logo { width: 44px; height: 44px; border-radius: 14px; background: linear-gradient(135deg, var(--primary), var(--accent)); box-shadow: var(--shadow); }
+      .brand h1, .brand p { margin: 0; }
+      .brand h1 { font-size: 18px; }
+      .brand p { font-size: 13px; color: var(--muted); margin-top: 3px; }
+      .sidebar-card { padding: 16px; border: 1px solid var(--border); border-radius: var(--radiusCard); background: var(--surface); box-shadow: var(--ring); margin-bottom: 16px; }
+      .sidebar-card h2 { margin: 0 0 10px; font-size: 15px; }
+      .search { width: 100%; border: 1px solid var(--border); background: rgba(255, 255, 255, 0.06); color: var(--text); padding: 12px 14px; border-radius: 14px; outline: none; }
+      .search::placeholder { color: rgba(245, 247, 255, 0.65); }
+      .group { margin-top: 16px; }
+      .group-title { margin: 0 0 10px; font-size: 12px; text-transform: uppercase; letter-spacing: 0.12em; color: var(--muted); }
+      .theme-list { display: grid; gap: 10px; }
+      .theme-item { width: 100%; border: 1px solid transparent; background: var(--surface); color: var(--text); text-align: left; border-radius: var(--radiusItem); padding: 12px; display: grid; grid-template-columns: 44px 1fr auto; align-items: center; gap: 12px; cursor: pointer; transition: transform 0.2s ease, border-color 0.2s ease, background 0.2s ease; }
+      .theme-item:hover { transform: translateY(-1px); border-color: var(--accent); background: var(--surface2); }
+      .theme-item.is-active { border-color: var(--primary); box-shadow: var(--ring); }
+      .swatch { width: 44px; height: 44px; border-radius: 14px; background: var(--preview, linear-gradient(135deg, var(--primary), var(--accent))); box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.18); }
+      .theme-item strong { display: block; font-size: 14px; margin-bottom: 3px; }
+      .theme-item span { display: block; color: var(--muted); font-size: 12px; }
+      .badge { font-size: 11px; color: var(--text); padding: 6px 9px; border-radius: 999px; background: rgba(255, 255, 255, 0.08); }
+      .main { padding: 28px; }
+      .hero { border: 1px solid var(--border); border-radius: var(--radiusHero); background: var(--heroBg); backdrop-filter: blur(22px); padding: var(--heroPadding); box-shadow: var(--shadow); position: relative; overflow: hidden; }
+      .hero::after { content: ""; position: absolute; inset: auto -12% -30% auto; width: 320px; height: 320px; border-radius: 50%; background: var(--orbGradient); filter: blur(10px); opacity: 0.55; }
+      .hero-top { display: flex; justify-content: space-between; align-items: center; gap: 16px; flex-wrap: wrap; }
+      .pill { display: inline-flex; align-items: center; gap: 8px; padding: 10px 14px; border-radius: var(--radiusPill); border: 1px solid var(--border); background: rgba(255, 255, 255, 0.06); color: var(--muted); font-size: 13px; }
+      .hero h2 { margin: 18px 0 14px; font-size: clamp(38px, 6vw, 72px); line-height: 0.95; letter-spacing: var(--titleSpacing); text-transform: var(--titleTransform); font-style: var(--titleStyle); max-width: 12ch; }
+      .hero p { margin: 0; max-width: 62ch; color: var(--muted); font-size: 16px; line-height: 1.7; }
+      .actions { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 24px; }
+      .btn { border: 0; padding: 13px 18px; border-radius: var(--radiusButton); font: inherit; cursor: pointer; text-decoration: none; display: inline-flex; align-items: center; gap: 10px; text-transform: var(--buttonTransform); letter-spacing: var(--buttonSpacing); }
+      .btn-primary { background: linear-gradient(135deg, var(--primary), var(--accent)); color: white; box-shadow: 0 16px 40px rgba(0, 0, 0, 0.18); }
+      .btn-ghost { color: var(--text); border: 1px solid var(--border); background: rgba(255, 255, 255, 0.05); }
+      .grid { display: grid; grid-template-columns: repeat(12, 1fr); gap: 18px; margin-top: 18px; }
+      .card { border: 1px solid var(--border); border-radius: var(--radiusCard); background: var(--surface); backdrop-filter: blur(20px); padding: var(--cardPadding); box-shadow: var(--ring); }
+      .stats { grid-column: span 12; display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+      .stat strong { display: block; font-size: 30px; margin-bottom: 6px; }
+      .stat span { color: var(--muted); font-size: 13px; }
+      .preview { grid-column: span 5; min-height: var(--previewMin); background: linear-gradient(140deg, rgba(255, 255, 255, 0.05), transparent 55%), linear-gradient(320deg, rgba(255, 255, 255, 0.03), transparent 40%), var(--surface); }
+      .preview-stack { margin-top: 18px; display: grid; gap: 12px; }
+      .mini-row { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 14px; border-radius: var(--radiusItem); background: rgba(255, 255, 255, 0.06); border: 1px solid var(--border); }
+      .mini-row strong { display: block; font-size: 14px; }
+      .mini-row span { display: block; color: var(--muted); font-size: 12px; }
+      .features { grid-column: span 7; display: grid; gap: 16px; grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .feature h3 { margin: 0 0 10px; font-size: 16px; }
+      .feature p { margin: 0; color: var(--muted); line-height: 1.7; font-size: 14px; }
+      .footer-cta { margin-top: 18px; display: grid; grid-template-columns: repeat(12, 1fr); gap: 18px; }
+      .cta { grid-column: span 12; display: flex; justify-content: space-between; align-items: center; gap: 16px; flex-wrap: wrap; background: linear-gradient(135deg, rgba(255,255,255,0.05), rgba(255,255,255,0.02)); }
+      .cta h3, .cta p { margin: 0; }
+      .cta p { color: var(--muted); margin-top: 6px; }
+      @media (max-width: 1100px) { .shell { grid-template-columns: 1fr; } .sidebar { position: relative; height: auto; border-right: 0; border-bottom: 1px solid var(--border); } .stats, .preview, .features { grid-column: span 12; } }
+      @media (max-width: 720px) { .main, .sidebar { padding: 18px; } .stats { grid-template-columns: repeat(2, 1fr); } .features { grid-template-columns: 1fr; } .hero { padding: 22px; } }
     </style>
   </head>
   <body>
@@ -466,18 +152,15 @@
           <div class="logo" aria-hidden="true"></div>
           <div>
             <h1>ThemeVerse</h1>
-            <p>Chọn theme, đổi toàn page ngay lập tức</p>
+            <p>Chọn theme, đổi cả cảm giác trang ngay lập tức</p>
           </div>
         </div>
-
         <section class="sidebar-card">
           <h2>Menu theme hiện đại</h2>
           <input id="search" class="search" type="search" placeholder="Tìm theme..." />
         </section>
-
         <div id="themeGroups"></div>
       </aside>
-
       <main class="main">
         <section class="hero card">
           <div class="hero-top">
@@ -485,11 +168,7 @@
             <div class="pill" id="currentThemeLabel">Theme: Aurora</div>
           </div>
           <h2>Landing page đổi mood theo theme bạn chọn.</h2>
-          <p>
-            Một giao diện landing page hiện đại với menu theme cực đầy đủ: light, dark, glassmorphism,
-            neon, pastel, luxury, nature, cyber, gradient và nhiều biến thể khác. Mỗi lần chọn theme,
-            toàn bộ page sẽ thay đổi tức thì.
-          </p>
+          <p>Một landing page với menu theme hiện đại: mỗi theme đổi không chỉ màu mà cả radius, độ glass, shadow, spacing và typography để cảm giác trang thật sự khác nhau.</p>
           <div class="actions">
             <a href="#themes" class="btn btn-primary">Khám phá theme</a>
             <a href="#features" class="btn btn-ghost">Xem tính năng</a>
@@ -498,74 +177,35 @@
 
         <section class="grid" id="themes">
           <div class="card stats">
-            <div class="stat">
-              <strong>24+</strong>
-              <span>theme modern</span>
-            </div>
-            <div class="stat">
-              <strong>6</strong>
-              <span>nhóm phong cách</span>
-            </div>
-            <div class="stat">
-              <strong>100%</strong>
-              <span>responsive</span>
-            </div>
-            <div class="stat">
-              <strong>Realtime</strong>
-              <span>đổi theme tức thì</span>
-            </div>
+            <div class="stat"><strong>24+</strong><span>theme modern</span></div>
+            <div class="stat"><strong>6</strong><span>nhóm phong cách</span></div>
+            <div class="stat"><strong>100%</strong><span>responsive</span></div>
+            <div class="stat"><strong>Realtime</strong><span>đổi theme tức thì</span></div>
           </div>
 
           <div class="card preview">
             <div class="pill">Theme preview</div>
-            <h3 style="margin: 14px 0 8px; font-size: 24px">Cảm giác thị giác thay đổi theo từng theme.</h3>
-            <p style="margin: 0; color: var(--muted); line-height: 1.7">
-              Mỗi theme có palette, độ tương phản, độ bóng và hiệu ứng nền riêng để page trông như
-              một sản phẩm khác nhau.
-            </p>
+            <h3 style="margin: 14px 0 8px; font-size: 24px">Mỗi theme có một khí chất riêng.</h3>
+            <p style="margin: 0; color: var(--muted); line-height: 1.7">Theme không chỉ là bảng màu. Nó còn là độ tròn của card, độ dày bóng, độ mờ kính, độ thoáng layout và vibe của toàn bộ giao diện.</p>
             <div class="preview-stack">
-              <div class="mini-row">
-                <div>
-                  <strong>Accent color</strong>
-                  <span>Primary / Secondary / Highlight</span>
-                </div>
-                <span class="badge">Dynamic</span>
-              </div>
-              <div class="mini-row">
-                <div>
-                  <strong>Glass surface</strong>
-                  <span>Cards, sidebar, hero và CTA</span>
-                </div>
-                <span class="badge">Modern UI</span>
-              </div>
+              <div class="mini-row"><div><strong>UI shape</strong><span>Radius, pill, shadow và depth</span></div><span class="badge">Dynamic</span></div>
+              <div class="mini-row"><div><strong>Typography mood</strong><span>Uppercase, italic, spacing và weight</span></div><span class="badge">Adaptive</span></div>
             </div>
           </div>
 
           <div class="features" id="features">
-            <article class="card feature">
-              <h3>Modern theme library</h3>
-              <p>Light, dark, minimal, glass, neon, cyberpunk, aurora, pastel, luxury, nature, ocean, forest, sunset.</p>
-            </article>
-            <article class="card feature">
-              <h3>Instant switching</h3>
-              <p>Click một theme là toàn bộ màu nền, card, nút, text và ambience cập nhật ngay, không reload.</p>
-            </article>
-            <article class="card feature">
-              <h3>Responsive menu</h3>
-              <p>Sidebar theme menu cuộn mượt, tự co lại trên mobile để vẫn giữ trải nghiệm đẹp và dễ dùng.</p>
-            </article>
-            <article class="card feature">
-              <h3>Polished landing content</h3>
-              <p>Hero, stats, preview, feature cards và CTA được thiết kế để trông như trang sản phẩm hoàn chỉnh.</p>
-            </article>
+            <article class="card feature"><h3>Modern theme library</h3><p>Glass, dark, light, neon, pastel, nature, warm, premium, minimal, earth, corporate.</p></article>
+            <article class="card feature"><h3>Instant switching</h3><p>Click là theme đổi ngay trên toàn page, không reload, không chờ.</p></article>
+            <article class="card feature"><h3>Real UI differences</h3><p>Mỗi theme thay đổi cả spacing, shadow, radius, blur, typography và hero treatment.</p></article>
+            <article class="card feature"><h3>Responsive menu</h3><p>Sidebar cuộn mượt, gọn đẹp trên mobile và vẫn giữ menu đầy đủ nhất có thể.</p></article>
           </div>
         </section>
 
         <section class="footer-cta">
           <div class="card cta">
             <div>
-              <h3>Muốn thêm theme nào nữa?</h3>
-              <p>Có thể mở rộng thêm theme theo brand, theo ngành, hoặc theo mùa trong vài phút.</p>
+              <h3>Muốn mình làm theme theo brand riêng của bạn?</h3>
+              <p>Mình có thể thêm preset theo ngành, theo mùa, hoặc theo bộ nhận diện.</p>
             </div>
             <a class="btn btn-primary" href="#themes">Chọn theme ngay</a>
           </div>
@@ -573,100 +213,62 @@
       </main>
     </div>
 
+    <script id="theme-data" type="application/json">[{"name": "Aurora", "group": "Glass & Glow", "description": "Sáng tạo, dịu, phát sáng", "preview": "linear-gradient(135deg, #7c8cff, #ff7ad9)", "vars": {"bg": "#0b1020", "bg2": "#121938", "surface": "rgba(255,255,255,0.08)", "surface2": "rgba(255,255,255,0.12)", "text": "#f5f7ff", "muted": "rgba(245,247,255,0.72)", "primary": "#7c8cff", "secondary": "#33d6c5", "accent": "#ff7ad9", "border": "rgba(255,255,255,0.14)", "shadow": "0 30px 90px rgba(0,0,0,0.35)", "ring": "0 0 0 1px rgba(124,140,255,0.14), 0 18px 60px rgba(0,0,0,0.2)", "sidebarBg": "rgba(9, 13, 31, 0.72)", "heroBg": "linear-gradient(135deg, rgba(124,140,255,0.15), rgba(255,122,217,0.08))", "orbGradient": "radial-gradient(circle, rgba(124,140,255,0.42), transparent 68%)", "noiseOpacity": "0.34", "noiseSize": "28px 28px", "sidebarWidth": "320px", "radiusHero": "34px", "radiusCard": "24px", "radiusItem": "18px", "radiusPill": "999px", "radiusButton": "16px", "panelBlur": "18px", "heroPadding": "30px", "cardPadding": "20px", "titleTransform": "none", "titleSpacing": "-0.05em", "titleStyle": "normal", "buttonTransform": "none", "buttonSpacing": "0.02em", "orbSize": "380px", "orbBlur": "34px", "previewMin": "280px"}}, {"name": "Midnight", "group": "Dark", "description": "Sang, sâu, đậm", "preview": "linear-gradient(135deg, #243bff, #9d7bff)", "vars": {"bg": "#060816", "bg2": "#0e1730", "surface": "rgba(255,255,255,0.07)", "surface2": "rgba(255,255,255,0.11)", "text": "#f7f9ff", "muted": "rgba(247,249,255,0.7)", "primary": "#8aa5ff", "secondary": "#5ed7ff", "accent": "#9d7bff", "border": "rgba(255,255,255,0.12)", "shadow": "0 26px 80px rgba(0,0,0,0.46)", "ring": "0 0 0 1px rgba(138,165,255,0.18), 0 16px 50px rgba(0,0,0,0.22)", "sidebarBg": "rgba(5, 9, 24, 0.78)", "heroBg": "linear-gradient(135deg, rgba(141,167,255,0.16), rgba(76,0,255,0.10))", "orbGradient": "radial-gradient(circle, rgba(88,116,255,0.34), transparent 68%)", "noiseOpacity": "0.26", "noiseSize": "32px 32px", "sidebarWidth": "312px", "radiusHero": "28px", "radiusCard": "22px", "radiusItem": "16px", "radiusPill": "999px", "radiusButton": "15px", "panelBlur": "16px", "heroPadding": "28px", "cardPadding": "20px", "titleTransform": "none", "titleSpacing": "-0.05em", "titleStyle": "normal", "buttonTransform": "none", "buttonSpacing": "0.02em", "orbSize": "380px", "orbBlur": "34px", "previewMin": "280px"}}, {"name": "Daylight", "group": "Light", "description": "Sạch, sáng, tinh gọn", "preview": "linear-gradient(135deg, #4568ff, #ff6f91)", "vars": {"bg": "#f6f8ff", "bg2": "#eaf0ff", "surface": "rgba(255,255,255,0.76)", "surface2": "rgba(255,255,255,0.94)", "text": "#14213d", "muted": "rgba(20,33,61,0.66)", "primary": "#4568ff", "secondary": "#19b6ff", "accent": "#ff6f91", "border": "rgba(20,33,61,0.1)", "shadow": "0 28px 80px rgba(20,33,61,0.14)", "ring": "0 0 0 1px rgba(69,104,255,0.12), 0 14px 48px rgba(20,33,61,0.14)", "sidebarBg": "rgba(255,255,255,0.78)", "heroBg": "linear-gradient(135deg, rgba(69,104,255,0.08), rgba(255,111,145,0.08))", "orbGradient": "radial-gradient(circle, rgba(69,104,255,0.18), transparent 68%)", "noiseOpacity": "0.18", "noiseSize": "30px 30px", "sidebarWidth": "320px", "radiusHero": "34px", "radiusCard": "26px", "radiusItem": "18px", "radiusPill": "999px", "radiusButton": "16px", "panelBlur": "12px", "heroPadding": "32px", "cardPadding": "20px", "titleTransform": "none", "titleSpacing": "-0.05em", "titleStyle": "normal", "buttonTransform": "none", "buttonSpacing": "0.01em", "orbSize": "380px", "orbBlur": "34px", "previewMin": "280px"}}, {"name": "Glass", "group": "Glass & Glow", "description": "Trong suốt, mờ nhẹ", "preview": "linear-gradient(135deg, #6ee7ff, #ff83b7)", "vars": {"bg": "#0d1225", "bg2": "#17213f", "surface": "rgba(255,255,255,0.09)", "surface2": "rgba(255,255,255,0.14)", "text": "#f3f6ff", "muted": "rgba(243,246,255,0.72)", "primary": "#6ee7ff", "secondary": "#9a7cff", "accent": "#ff83b7", "border": "rgba(255,255,255,0.16)", "shadow": "0 30px 95px rgba(0,0,0,0.36)", "ring": "0 0 0 1px rgba(110,231,255,0.18), 0 18px 60px rgba(0,0,0,0.2)", "sidebarBg": "rgba(13, 18, 37, 0.6)", "heroBg": "linear-gradient(135deg, rgba(110,231,255,0.14), rgba(255,131,183,0.08))", "orbGradient": "radial-gradient(circle, rgba(110,231,255,0.3), transparent 70%)", "noiseOpacity": "0.3", "noiseSize": "26px 26px", "sidebarWidth": "330px", "radiusHero": "38px", "radiusCard": "28px", "radiusItem": "20px", "radiusPill": "999px", "radiusButton": "18px", "panelBlur": "24px", "heroPadding": "32px", "cardPadding": "20px", "titleTransform": "none", "titleSpacing": "-0.05em", "titleStyle": "normal", "buttonTransform": "none", "buttonSpacing": "0.02em", "orbSize": "380px", "orbBlur": "34px", "previewMin": "300px"}}, {"name": "Neon Pulse", "group": "Neon", "description": "Tương phản cao, bật sáng", "preview": "linear-gradient(135deg, #00f5d4, #f15bb5)", "vars": {"bg": "#05050b", "bg2": "#0e0e18", "surface": "rgba(255,255,255,0.06)", "surface2": "rgba(255,255,255,0.1)", "text": "#f6f7ff", "muted": "rgba(246,247,255,0.7)", "primary": "#00f5d4", "secondary": "#00bbf9", "accent": "#f15bb5", "border": "rgba(0,245,212,0.18)", "shadow": "0 0 0 1px rgba(0,245,212,0.12), 0 28px 90px rgba(0,0,0,0.5)", "ring": "0 0 0 1px rgba(0,245,212,0.28), 0 0 28px rgba(0,245,212,0.25)", "sidebarBg": "rgba(5, 5, 11, 0.82)", "heroBg": "linear-gradient(135deg, rgba(0,245,212,0.12), rgba(241,91,181,0.08))", "orbGradient": "radial-gradient(circle, rgba(0,245,212,0.35), transparent 70%)", "noiseOpacity": "0.22", "noiseSize": "24px 24px", "sidebarWidth": "304px", "radiusHero": "24px", "radiusCard": "18px", "radiusItem": "14px", "radiusPill": "999px", "radiusButton": "14px", "panelBlur": "12px", "heroPadding": "28px", "cardPadding": "18px", "titleTransform": "uppercase", "titleSpacing": "0.08em", "titleStyle": "normal", "buttonTransform": "uppercase", "buttonSpacing": "0.1em", "orbSize": "380px", "orbBlur": "34px", "previewMin": "280px"}}, {"name": "Cyberpunk", "group": "Neon", "description": "Tối, điện tử, nổi loạn", "preview": "linear-gradient(135deg, #ff4d9d, #00e5ff)", "vars": {"bg": "#09051a", "bg2": "#1a0835", "surface": "rgba(255,255,255,0.07)", "surface2": "rgba(255,255,255,0.12)", "text": "#f8e9ff", "muted": "rgba(248,233,255,0.72)", "primary": "#ff4d9d", "secondary": "#8a5cff", "accent": "#00e5ff", "border": "rgba(255,77,157,0.18)", "shadow": "0 28px 95px rgba(0,0,0,0.5)", "ring": "0 0 0 1px rgba(255,77,157,0.22), 0 0 26px rgba(255,77,157,0.18)", "sidebarBg": "rgba(9, 5, 26, 0.84)", "heroBg": "linear-gradient(135deg, rgba(255,77,157,0.13), rgba(0,229,255,0.08))", "orbGradient": "radial-gradient(circle, rgba(255,77,157,0.26), transparent 68%)", "noiseOpacity": "0.22", "noiseSize": "24px 24px", "sidebarWidth": "316px", "radiusHero": "20px", "radiusCard": "16px", "radiusItem": "12px", "radiusPill": "999px", "radiusButton": "12px", "panelBlur": "10px", "heroPadding": "28px", "cardPadding": "18px", "titleTransform": "uppercase", "titleSpacing": "0.12em", "titleStyle": "italic", "buttonTransform": "uppercase", "buttonSpacing": "0.12em", "orbSize": "380px", "orbBlur": "34px", "previewMin": "280px"}}, {"name": "Pastel Bloom", "group": "Pastel", "description": "Mềm, ngọt, hiện đại", "preview": "linear-gradient(135deg, #ff7eb6, #b28dff)", "vars": {"bg": "#fff8fb", "bg2": "#f4f0ff", "surface": "rgba(255,255,255,0.8)", "surface2": "rgba(255,255,255,0.95)", "text": "#2f2a3d", "muted": "rgba(47,42,61,0.65)", "primary": "#ff7eb6", "secondary": "#7bdff2", "accent": "#b28dff", "border": "rgba(47,42,61,0.08)", "shadow": "0 24px 70px rgba(150,110,180,0.14)", "ring": "0 0 0 1px rgba(255,126,182,0.12), 0 14px 42px rgba(150,110,180,0.14)", "sidebarBg": "rgba(255,255,255,0.84)", "heroBg": "linear-gradient(135deg, rgba(255,126,182,0.1), rgba(178,141,255,0.1))", "orbGradient": "radial-gradient(circle, rgba(255,126,182,0.18), transparent 68%)", "noiseOpacity": "0.12", "noiseSize": "36px 36px", "sidebarWidth": "324px", "radiusHero": "40px", "radiusCard": "30px", "radiusItem": "20px", "radiusPill": "999px", "radiusButton": "20px", "panelBlur": "14px", "heroPadding": "34px", "cardPadding": "20px", "titleTransform": "none", "titleSpacing": "-0.05em", "titleStyle": "normal", "buttonTransform": "none", "buttonSpacing": "0.01em", "orbSize": "380px", "orbBlur": "34px", "previewMin": "280px"}}, {"name": "Mint Fresh", "group": "Nature", "description": "Mát, sạch, tươi mới", "preview": "linear-gradient(135deg, #19b37a, #83d483)", "vars": {"bg": "#effaf5", "bg2": "#dbf6ea", "surface": "rgba(255,255,255,0.76)", "surface2": "rgba(255,255,255,0.94)", "text": "#17352d", "muted": "rgba(23,53,45,0.65)", "primary": "#19b37a", "secondary": "#39c6a5", "accent": "#83d483", "border": "rgba(23,53,45,0.08)", "shadow": "0 24px 72px rgba(23,53,45,0.12)", "ring": "0 0 0 1px rgba(25,179,122,0.12), 0 14px 42px rgba(23,53,45,0.12)", "sidebarBg": "rgba(255,255,255,0.84)", "heroBg": "linear-gradient(135deg, rgba(25,179,122,0.1), rgba(131,212,131,0.08))", "orbGradient": "radial-gradient(circle, rgba(25,179,122,0.16), transparent 68%)", "noiseOpacity": "0.1", "noiseSize": "36px 36px", "sidebarWidth": "320px", "radiusHero": "36px", "radiusCard": "28px", "radiusItem": "20px", "radiusPill": "999px", "radiusButton": "18px", "panelBlur": "12px", "heroPadding": "32px", "cardPadding": "20px", "titleTransform": "none", "titleSpacing": "-0.05em", "titleStyle": "normal", "buttonTransform": "none", "buttonSpacing": "0.02em", "orbSize": "380px", "orbBlur": "34px", "previewMin": "280px"}}, {"name": "Ocean Wave", "group": "Nature", "description": "Biển xanh, dịu mắt", "preview": "linear-gradient(135deg, #2eb7ff, #3df3cb)", "vars": {"bg": "#07111f", "bg2": "#0d2744", "surface": "rgba(255,255,255,0.08)", "surface2": "rgba(255,255,255,0.12)", "text": "#eef7ff", "muted": "rgba(238,247,255,0.72)", "primary": "#2eb7ff", "secondary": "#00d4ff", "accent": "#3df3cb", "border": "rgba(46,183,255,0.18)", "shadow": "0 28px 80px rgba(0,0,0,0.4)", "ring": "0 0 0 1px rgba(46,183,255,0.18), 0 0 26px rgba(46,183,255,0.16)", "sidebarBg": "rgba(7, 17, 31, 0.82)", "heroBg": "linear-gradient(135deg, rgba(46,183,255,0.14), rgba(61,243,203,0.08))", "orbGradient": "radial-gradient(circle, rgba(46,183,255,0.3), transparent 70%)", "noiseOpacity": "0.2", "noiseSize": "28px 28px", "sidebarWidth": "324px", "radiusHero": "32px", "radiusCard": "24px", "radiusItem": "18px", "radiusPill": "999px", "radiusButton": "16px", "panelBlur": "16px", "heroPadding": "30px", "cardPadding": "20px", "titleTransform": "none", "titleSpacing": "-0.05em", "titleStyle": "normal", "buttonTransform": "none", "buttonSpacing": "0.02em", "orbSize": "380px", "orbBlur": "34px", "previewMin": "280px"}}, {"name": "Forest", "group": "Nature", "description": "Trầm, xanh, ổn định", "preview": "linear-gradient(135deg, #49b86a, #c1f07a)", "vars": {"bg": "#07140e", "bg2": "#12291d", "surface": "rgba(255,255,255,0.07)", "surface2": "rgba(255,255,255,0.11)", "text": "#edf8f0", "muted": "rgba(237,248,240,0.72)", "primary": "#49b86a", "secondary": "#8bd17c", "accent": "#c1f07a", "border": "rgba(137,209,124,0.15)", "shadow": "0 28px 84px rgba(0,0,0,0.38)", "ring": "0 0 0 1px rgba(137,209,124,0.18), 0 0 22px rgba(137,209,124,0.15)", "sidebarBg": "rgba(7, 20, 14, 0.82)", "heroBg": "linear-gradient(135deg, rgba(73,184,106,0.12), rgba(193,240,122,0.08))", "orbGradient": "radial-gradient(circle, rgba(73,184,106,0.26), transparent 68%)", "noiseOpacity": "0.2", "noiseSize": "32px 32px", "sidebarWidth": "326px", "radiusHero": "30px", "radiusCard": "24px", "radiusItem": "18px", "radiusPill": "999px", "radiusButton": "16px", "panelBlur": "12px", "heroPadding": "30px", "cardPadding": "20px", "titleTransform": "none", "titleSpacing": "-0.05em", "titleStyle": "normal", "buttonTransform": "uppercase", "buttonSpacing": "0.05em", "orbSize": "380px", "orbBlur": "34px", "previewMin": "280px"}}, {"name": "Sunset", "group": "Warm", "description": "Ấm, rực, cảm xúc", "preview": "linear-gradient(135deg, #ff8f5c, #ffd166)", "vars": {"bg": "#160b14", "bg2": "#34152b", "surface": "rgba(255,255,255,0.08)", "surface2": "rgba(255,255,255,0.13)", "text": "#fff3ef", "muted": "rgba(255,243,239,0.72)", "primary": "#ff8f5c", "secondary": "#ff5f8a", "accent": "#ffd166", "border": "rgba(255,255,255,0.14)", "shadow": "0 28px 84px rgba(0,0,0,0.42)", "ring": "0 0 0 1px rgba(255,143,92,0.18), 0 0 24px rgba(255,143,92,0.16)", "sidebarBg": "rgba(22, 11, 20, 0.8)", "heroBg": "linear-gradient(135deg, rgba(255,143,92,0.12), rgba(255,209,102,0.08))", "orbGradient": "radial-gradient(circle, rgba(255,143,92,0.24), transparent 68%)", "noiseOpacity": "0.2", "noiseSize": "28px 28px", "sidebarWidth": "320px", "radiusHero": "36px", "radiusCard": "26px", "radiusItem": "18px", "radiusPill": "999px", "radiusButton": "18px", "panelBlur": "14px", "heroPadding": "32px", "cardPadding": "20px", "titleTransform": "none", "titleSpacing": "-0.03em", "titleStyle": "normal", "buttonTransform": "none", "buttonSpacing": "0.02em", "orbSize": "380px", "orbBlur": "34px", "previewMin": "280px"}}, {"name": "Luxury Gold", "group": "Premium", "description": "Cao cấp, sang trọng", "preview": "linear-gradient(135deg, #d4af37, #9c6b30)", "vars": {"bg": "#0f0b08", "bg2": "#231811", "surface": "rgba(255,255,255,0.06)", "surface2": "rgba(255,255,255,0.09)", "text": "#fff7ea", "muted": "rgba(255,247,234,0.72)", "primary": "#d4af37", "secondary": "#f2d28b", "accent": "#9c6b30", "border": "rgba(212,175,55,0.2)", "shadow": "0 30px 95px rgba(0,0,0,0.48)", "ring": "0 0 0 1px rgba(212,175,55,0.2), 0 0 24px rgba(212,175,55,0.18)", "sidebarBg": "rgba(15, 11, 8, 0.84)", "heroBg": "linear-gradient(135deg, rgba(212,175,55,0.13), rgba(156,107,48,0.08))", "orbGradient": "radial-gradient(circle, rgba(212,175,55,0.2), transparent 68%)", "noiseOpacity": "0.16", "noiseSize": "30px 30px", "sidebarWidth": "318px", "radiusHero": "40px", "radiusCard": "30px", "radiusItem": "20px", "radiusPill": "999px", "radiusButton": "18px", "panelBlur": "16px", "heroPadding": "32px", "cardPadding": "20px", "titleTransform": "uppercase", "titleSpacing": "0.08em", "titleStyle": "normal", "buttonTransform": "uppercase", "buttonSpacing": "0.08em", "orbSize": "380px", "orbBlur": "34px", "previewMin": "280px"}}, {"name": "Minimal Mono", "group": "Minimal", "description": "Đơn sắc, tập trung", "preview": "linear-gradient(135deg, #111111, #b8b8b8)", "vars": {"bg": "#f4f4f4", "bg2": "#dedede", "surface": "rgba(255,255,255,0.84)", "surface2": "rgba(255,255,255,0.96)", "text": "#111111", "muted": "rgba(17,17,17,0.62)", "primary": "#111111", "secondary": "#666666", "accent": "#b8b8b8", "border": "rgba(17,17,17,0.08)", "shadow": "0 18px 48px rgba(0,0,0,0.12)", "ring": "0 0 0 1px rgba(17,17,17,0.1), 0 12px 32px rgba(0,0,0,0.08)", "sidebarBg": "rgba(255,255,255,0.9)", "heroBg": "linear-gradient(135deg, rgba(17,17,17,0.04), rgba(184,184,184,0.08))", "orbGradient": "radial-gradient(circle, rgba(17,17,17,0.08), transparent 68%)", "noiseOpacity": "0.06", "noiseSize": "40px 40px", "sidebarWidth": "300px", "radiusHero": "18px", "radiusCard": "16px", "radiusItem": "12px", "radiusPill": "999px", "radiusButton": "12px", "panelBlur": "8px", "heroPadding": "26px", "cardPadding": "18px", "titleTransform": "uppercase", "titleSpacing": "0.12em", "titleStyle": "normal", "buttonTransform": "uppercase", "buttonSpacing": "0.12em", "orbSize": "380px", "orbBlur": "34px", "previewMin": "280px"}}, {"name": "Paper", "group": "Minimal", "description": "Tối giản như giấy", "preview": "linear-gradient(135deg, #6e6256, #d7c6ae)", "vars": {"bg": "#fbf8f1", "bg2": "#f0ebe1", "surface": "rgba(255,255,255,0.8)", "surface2": "rgba(255,255,255,0.95)", "text": "#2d2a24", "muted": "rgba(45,42,36,0.66)", "primary": "#6e6256", "secondary": "#9c8f7c", "accent": "#d7c6ae", "border": "rgba(45,42,36,0.08)", "shadow": "0 18px 48px rgba(45,42,36,0.1)", "ring": "0 0 0 1px rgba(110,98,86,0.1), 0 12px 32px rgba(45,42,36,0.08)", "sidebarBg": "rgba(255,255,255,0.88)", "heroBg": "linear-gradient(135deg, rgba(110,98,86,0.06), rgba(215,198,174,0.1))", "orbGradient": "radial-gradient(circle, rgba(110,98,86,0.08), transparent 68%)", "noiseOpacity": "0.06", "noiseSize": "42px 42px", "sidebarWidth": "304px", "radiusHero": "22px", "radiusCard": "18px", "radiusItem": "12px", "radiusPill": "999px", "radiusButton": "12px", "panelBlur": "8px", "heroPadding": "28px", "cardPadding": "18px", "titleTransform": "none", "titleSpacing": "-0.05em", "titleStyle": "normal", "buttonTransform": "none", "buttonSpacing": "0.02em", "orbSize": "380px", "orbBlur": "34px", "previewMin": "280px"}}, {"name": "Sandstone", "group": "Earth", "description": "Ấm, dịu, tự nhiên", "preview": "linear-gradient(135deg, #b57a4f, #e9c46a)", "vars": {"bg": "#f6efe5", "bg2": "#e9dac8", "surface": "rgba(255,255,255,0.78)", "surface2": "rgba(255,255,255,0.94)", "text": "#4a3728", "muted": "rgba(74,55,40,0.66)", "primary": "#b57a4f", "secondary": "#d4a373", "accent": "#e9c46a", "border": "rgba(74,55,40,0.08)", "shadow": "0 20px 60px rgba(74,55,40,0.12)", "ring": "0 0 0 1px rgba(181,122,79,0.12), 0 12px 34px rgba(74,55,40,0.08)", "sidebarBg": "rgba(255,255,255,0.82)", "heroBg": "linear-gradient(135deg, rgba(181,122,79,0.08), rgba(233,196,106,0.08))", "orbGradient": "radial-gradient(circle, rgba(181,122,79,0.12), transparent 68%)", "noiseOpacity": "0.08", "noiseSize": "36px 36px", "sidebarWidth": "322px", "radiusHero": "32px", "radiusCard": "24px", "radiusItem": "18px", "radiusPill": "999px", "radiusButton": "16px", "panelBlur": "12px", "heroPadding": "30px", "cardPadding": "20px", "titleTransform": "none", "titleSpacing": "-0.05em", "titleStyle": "normal", "buttonTransform": "none", "buttonSpacing": "0.02em", "orbSize": "380px", "orbBlur": "34px", "previewMin": "280px"}}, {"name": "Lavender", "group": "Pastel", "description": "Mộng mơ, dịu dàng", "preview": "linear-gradient(135deg, #8b5cf6, #f472b6)", "vars": {"bg": "#f8f5ff", "bg2": "#ebe4ff", "surface": "rgba(255,255,255,0.8)", "surface2": "rgba(255,255,255,0.95)", "text": "#30244a", "muted": "rgba(48,36,74,0.66)", "primary": "#8b5cf6", "secondary": "#c084fc", "accent": "#f472b6", "border": "rgba(48,36,74,0.08)", "shadow": "0 22px 66px rgba(120,98,170,0.14)", "ring": "0 0 0 1px rgba(139,92,246,0.12), 0 12px 34px rgba(120,98,170,0.12)", "sidebarBg": "rgba(255,255,255,0.86)", "heroBg": "linear-gradient(135deg, rgba(139,92,246,0.1), rgba(244,114,182,0.08))", "orbGradient": "radial-gradient(circle, rgba(139,92,246,0.16), transparent 68%)", "noiseOpacity": "0.08", "noiseSize": "40px 40px", "sidebarWidth": "322px", "radiusHero": "38px", "radiusCard": "28px", "radiusItem": "20px", "radiusPill": "999px", "radiusButton": "18px", "panelBlur": "14px", "heroPadding": "32px", "cardPadding": "20px", "titleTransform": "none", "titleSpacing": "-0.05em", "titleStyle": "normal", "buttonTransform": "none", "buttonSpacing": "0.02em", "orbSize": "380px", "orbBlur": "34px", "previewMin": "280px"}}, {"name": "Rose Quartz", "group": "Pastel", "description": "Soft, pink, elegant", "preview": "linear-gradient(135deg, #ff6b9f, #ffd1dc)", "vars": {"bg": "#fff4f7", "bg2": "#ffe2eb", "surface": "rgba(255,255,255,0.82)", "surface2": "rgba(255,255,255,0.95)", "text": "#4d2436", "muted": "rgba(77,36,54,0.66)", "primary": "#ff6b9f", "secondary": "#ff9ec4", "accent": "#ffd1dc", "border": "rgba(77,36,54,0.08)", "shadow": "0 22px 66px rgba(160,95,125,0.14)", "ring": "0 0 0 1px rgba(255,107,159,0.12), 0 12px 34px rgba(160,95,125,0.12)", "sidebarBg": "rgba(255,255,255,0.86)", "heroBg": "linear-gradient(135deg, rgba(255,107,159,0.1), rgba(255,209,220,0.08))", "orbGradient": "radial-gradient(circle, rgba(255,107,159,0.14), transparent 68%)", "noiseOpacity": "0.08", "noiseSize": "40px 40px", "sidebarWidth": "322px", "radiusHero": "38px", "radiusCard": "28px", "radiusItem": "20px", "radiusPill": "999px", "radiusButton": "18px", "panelBlur": "14px", "heroPadding": "32px", "cardPadding": "20px", "titleTransform": "none", "titleSpacing": "-0.05em", "titleStyle": "normal", "buttonTransform": "none", "buttonSpacing": "0.02em", "orbSize": "380px", "orbBlur": "34px", "previewMin": "280px"}}, {"name": "Arctic", "group": "Light", "description": "Mát lạnh, tinh khiết", "preview": "linear-gradient(135deg, #0284c7, #67e8f9)", "vars": {"bg": "#edf6fb", "bg2": "#dceef7", "surface": "rgba(255,255,255,0.82)", "surface2": "rgba(255,255,255,0.95)", "text": "#123046", "muted": "rgba(18,48,70,0.66)", "primary": "#0284c7", "secondary": "#38bdf8", "accent": "#67e8f9", "border": "rgba(18,48,70,0.08)", "shadow": "0 20px 60px rgba(18,48,70,0.12)", "ring": "0 0 0 1px rgba(2,132,199,0.12), 0 12px 34px rgba(18,48,70,0.08)", "sidebarBg": "rgba(255,255,255,0.86)", "heroBg": "linear-gradient(135deg, rgba(2,132,199,0.08), rgba(103,232,249,0.08))", "orbGradient": "radial-gradient(circle, rgba(2,132,199,0.12), transparent 68%)", "noiseOpacity": "0.08", "noiseSize": "34px 34px", "sidebarWidth": "320px", "radiusHero": "34px", "radiusCard": "24px", "radiusItem": "18px", "radiusPill": "999px", "radiusButton": "16px", "panelBlur": "12px", "heroPadding": "30px", "cardPadding": "20px", "titleTransform": "none", "titleSpacing": "-0.05em", "titleStyle": "normal", "buttonTransform": "none", "buttonSpacing": "0.02em", "orbSize": "380px", "orbBlur": "34px", "previewMin": "280px"}}, {"name": "Neon Lime", "group": "Neon", "description": "Bật sáng, tương phản mạnh", "preview": "linear-gradient(135deg, #b9ff00, #ff3d81)", "vars": {"bg": "#040607", "bg2": "#0c1111", "surface": "rgba(255,255,255,0.06)", "surface2": "rgba(255,255,255,0.1)", "text": "#f2fff5", "muted": "rgba(242,255,245,0.7)", "primary": "#b9ff00", "secondary": "#00ffa3", "accent": "#ff3d81", "border": "rgba(185,255,0,0.18)", "shadow": "0 28px 90px rgba(0,0,0,0.5)", "ring": "0 0 0 1px rgba(185,255,0,0.25), 0 0 24px rgba(185,255,0,0.22)", "sidebarBg": "rgba(4, 6, 7, 0.84)", "heroBg": "linear-gradient(135deg, rgba(185,255,0,0.1), rgba(255,61,129,0.08))", "orbGradient": "radial-gradient(circle, rgba(185,255,0,0.24), transparent 68%)", "noiseOpacity": "0.18", "noiseSize": "24px 24px", "sidebarWidth": "306px", "radiusHero": "18px", "radiusCard": "16px", "radiusItem": "12px", "radiusPill": "999px", "radiusButton": "12px", "panelBlur": "10px", "heroPadding": "28px", "cardPadding": "18px", "titleTransform": "uppercase", "titleSpacing": "0.12em", "titleStyle": "normal", "buttonTransform": "uppercase", "buttonSpacing": "0.12em", "orbSize": "380px", "orbBlur": "34px", "previewMin": "280px"}}, {"name": "Graphite", "group": "Dark", "description": "Tối, trung tính, chắc chắn", "preview": "linear-gradient(135deg, #8b949e, #cbd5e1)", "vars": {"bg": "#0b0d10", "bg2": "#171b21", "surface": "rgba(255,255,255,0.06)", "surface2": "rgba(255,255,255,0.1)", "text": "#f2f5f8", "muted": "rgba(242,245,248,0.68)", "primary": "#8b949e", "secondary": "#5f6b7a", "accent": "#cbd5e1", "border": "rgba(255,255,255,0.12)", "shadow": "0 22px 70px rgba(0,0,0,0.44)", "ring": "0 0 0 1px rgba(139,148,158,0.16), 0 14px 40px rgba(0,0,0,0.18)", "sidebarBg": "rgba(11, 13, 16, 0.84)", "heroBg": "linear-gradient(135deg, rgba(139,148,158,0.12), rgba(203,213,225,0.08))", "orbGradient": "radial-gradient(circle, rgba(139,148,158,0.18), transparent 68%)", "noiseOpacity": "0.14", "noiseSize": "32px 32px", "sidebarWidth": "314px", "radiusHero": "22px", "radiusCard": "18px", "radiusItem": "14px", "radiusPill": "999px", "radiusButton": "14px", "panelBlur": "12px", "heroPadding": "28px", "cardPadding": "18px", "titleTransform": "none", "titleSpacing": "-0.02em", "titleStyle": "normal", "buttonTransform": "none", "buttonSpacing": "0.02em", "orbSize": "380px", "orbBlur": "34px", "previewMin": "280px"}}, {"name": "Cherry", "group": "Warm", "description": "Năng lượng, nổi bật", "preview": "linear-gradient(135deg, #ff4d6d, #ffb3c1)", "vars": {"bg": "#1a0710", "bg2": "#350b1c", "surface": "rgba(255,255,255,0.07)", "surface2": "rgba(255,255,255,0.11)", "text": "#fff1f4", "muted": "rgba(255,241,244,0.72)", "primary": "#ff4d6d", "secondary": "#ff758f", "accent": "#ffb3c1", "border": "rgba(255,77,109,0.18)", "shadow": "0 28px 86px rgba(0,0,0,0.44)", "ring": "0 0 0 1px rgba(255,77,109,0.18), 0 0 22px rgba(255,77,109,0.18)", "sidebarBg": "rgba(26, 7, 16, 0.82)", "heroBg": "linear-gradient(135deg, rgba(255,77,109,0.12), rgba(255,179,193,0.08))", "orbGradient": "radial-gradient(circle, rgba(255,77,109,0.22), transparent 68%)", "noiseOpacity": "0.2", "noiseSize": "28px 28px", "sidebarWidth": "320px", "radiusHero": "34px", "radiusCard": "24px", "radiusItem": "18px", "radiusPill": "999px", "radiusButton": "18px", "panelBlur": "14px", "heroPadding": "32px", "cardPadding": "20px", "titleTransform": "none", "titleSpacing": "-0.05em", "titleStyle": "normal", "buttonTransform": "uppercase", "buttonSpacing": "0.06em", "orbSize": "380px", "orbBlur": "34px", "previewMin": "280px"}}, {"name": "Blue Steel", "group": "Corporate", "description": "Chuyên nghiệp, hiện đại", "preview": "linear-gradient(135deg, #3b82f6, #93c5fd)", "vars": {"bg": "#08111f", "bg2": "#11233f", "surface": "rgba(255,255,255,0.07)", "surface2": "rgba(255,255,255,0.11)", "text": "#eef4ff", "muted": "rgba(238,244,255,0.72)", "primary": "#3b82f6", "secondary": "#60a5fa", "accent": "#93c5fd", "border": "rgba(147,197,253,0.16)", "shadow": "0 24px 72px rgba(0,0,0,0.36)", "ring": "0 0 0 1px rgba(147,197,253,0.18), 0 14px 40px rgba(0,0,0,0.16)", "sidebarBg": "rgba(8, 17, 31, 0.8)", "heroBg": "linear-gradient(135deg, rgba(59,130,246,0.12), rgba(147,197,253,0.08))", "orbGradient": "radial-gradient(circle, rgba(59,130,246,0.2), transparent 68%)", "noiseOpacity": "0.18", "noiseSize": "30px 30px", "sidebarWidth": "320px", "radiusHero": "28px", "radiusCard": "22px", "radiusItem": "16px", "radiusPill": "999px", "radiusButton": "16px", "panelBlur": "14px", "heroPadding": "30px", "cardPadding": "20px", "titleTransform": "none", "titleSpacing": "-0.05em", "titleStyle": "normal", "buttonTransform": "none", "buttonSpacing": "0.02em", "orbSize": "380px", "orbBlur": "34px", "previewMin": "280px"}}, {"name": "Ember", "group": "Warm", "description": "Lửa, chiều sâu", "preview": "linear-gradient(135deg, #ff7b54, #ffd166)", "vars": {"bg": "#150a08", "bg2": "#301513", "surface": "rgba(255,255,255,0.07)", "surface2": "rgba(255,255,255,0.11)", "text": "#fff6f2", "muted": "rgba(255,246,242,0.72)", "primary": "#ff7b54", "secondary": "#ff9f68", "accent": "#ffd166", "border": "rgba(255,123,84,0.18)", "shadow": "0 28px 86px rgba(0,0,0,0.42)", "ring": "0 0 0 1px rgba(255,123,84,0.18), 0 0 22px rgba(255,123,84,0.16)", "sidebarBg": "rgba(21, 10, 8, 0.82)", "heroBg": "linear-gradient(135deg, rgba(255,123,84,0.12), rgba(255,209,102,0.08))", "orbGradient": "radial-gradient(circle, rgba(255,123,84,0.2), transparent 68%)", "noiseOpacity": "0.18", "noiseSize": "28px 28px", "sidebarWidth": "320px", "radiusHero": "32px", "radiusCard": "24px", "radiusItem": "18px", "radiusPill": "999px", "radiusButton": "18px", "panelBlur": "12px", "heroPadding": "30px", "cardPadding": "20px", "titleTransform": "none", "titleSpacing": "-0.05em", "titleStyle": "normal", "buttonTransform": "none", "buttonSpacing": "0.02em", "orbSize": "380px", "orbBlur": "34px", "previewMin": "280px"}}, {"name": "Plum", "group": "Premium", "description": "Đậm, nghệ, tinh tế", "preview": "linear-gradient(135deg, #a855f7, #fb7185)", "vars": {"bg": "#120816", "bg2": "#25132c", "surface": "rgba(255,255,255,0.07)", "surface2": "rgba(255,255,255,0.11)", "text": "#f8f3ff", "muted": "rgba(248,243,255,0.72)", "primary": "#a855f7", "secondary": "#d946ef", "accent": "#fb7185", "border": "rgba(168,85,247,0.18)", "shadow": "0 28px 86px rgba(0,0,0,0.42)", "ring": "0 0 0 1px rgba(168,85,247,0.18), 0 0 22px rgba(168,85,247,0.16)", "sidebarBg": "rgba(18, 8, 22, 0.84)", "heroBg": "linear-gradient(135deg, rgba(168,85,247,0.12), rgba(251,113,133,0.08))", "orbGradient": "radial-gradient(circle, rgba(168,85,247,0.2), transparent 68%)", "noiseOpacity": "0.16", "noiseSize": "28px 28px", "sidebarWidth": "320px", "radiusHero": "38px", "radiusCard": "28px", "radiusItem": "20px", "radiusPill": "999px", "radiusButton": "18px", "panelBlur": "14px", "heroPadding": "32px", "cardPadding": "20px", "titleTransform": "none", "titleSpacing": "-0.05em", "titleStyle": "italic", "buttonTransform": "none", "buttonSpacing": "0.02em", "orbSize": "380px", "orbBlur": "34px", "previewMin": "280px"}}]</script>
     <script>
-      const themes = [
-        { name: "Aurora", group: "Glass & Glow", description: "Sáng tạo, dịu, phát sáng", icon: "A", vars: { bg: "#0b1020", bg2: "#121938", surface: "rgba(255,255,255,0.08)", surface2: "rgba(255,255,255,0.12)", text: "#f5f7ff", muted: "rgba(245,247,255,0.72)", primary: "#7c8cff", secondary: "#33d6c5", accent: "#ff7ad9", border: "rgba(255,255,255,0.14)", preview: "linear-gradient(135deg,#7c8cff,#ff7ad9)" } },
-        { name: "Midnight", group: "Dark", description: "Sang, sâu, đậm", icon: "M", vars: { bg: "#060816", bg2: "#0e1730", surface: "rgba(255,255,255,0.07)", surface2: "rgba(255,255,255,0.11)", text: "#f7f9ff", muted: "rgba(247,249,255,0.7)", primary: "#8aa5ff", secondary: "#5ed7ff", accent: "#9d7bff", border: "rgba(255,255,255,0.12)", preview: "linear-gradient(135deg,#243bff,#9d7bff)" } },
-        { name: "Daylight", group: "Light", description: "Sạch, sáng, tinh gọn", icon: "D", vars: { bg: "#f6f8ff", bg2: "#eaf0ff", surface: "rgba(255,255,255,0.7)", surface2: "rgba(255,255,255,0.9)", text: "#14213d", muted: "rgba(20,33,61,0.65)", primary: "#4568ff", secondary: "#19b6ff", accent: "#ff6f91", border: "rgba(20,33,61,0.1)", preview: "linear-gradient(135deg,#4568ff,#ff6f91)" } },
-        { name: "Glass", group: "Glass & Glow", description: "Trong suốt, mờ nhẹ", icon: "G", vars: { bg: "#0d1225", bg2: "#17213f", surface: "rgba(255,255,255,0.09)", surface2: "rgba(255,255,255,0.14)", text: "#f3f6ff", muted: "rgba(243,246,255,0.72)", primary: "#6ee7ff", secondary: "#9a7cff", accent: "#ff83b7", border: "rgba(255,255,255,0.16)", preview: "linear-gradient(135deg,#6ee7ff,#ff83b7)" } },
-        { name: "Neon Pulse", group: "Neon", description: "Tương phản cao, bật sáng", icon: "N", vars: { bg: "#05050b", bg2: "#0e0e18", surface: "rgba(255,255,255,0.06)", surface2: "rgba(255,255,255,0.1)", text: "#f6f7ff", muted: "rgba(246,247,255,0.7)", primary: "#00f5d4", secondary: "#00bbf9", accent: "#f15bb5", border: "rgba(0,245,212,0.18)", preview: "linear-gradient(135deg,#00f5d4,#f15bb5)" } },
-        { name: "Cyberpunk", group: "Neon", description: "Tối, điện tử, nổi loạn", icon: "C", vars: { bg: "#09051a", bg2: "#1a0835", surface: "rgba(255,255,255,0.07)", surface2: "rgba(255,255,255,0.12)", text: "#f8e9ff", muted: "rgba(248,233,255,0.72)", primary: "#ff4d9d", secondary: "#8a5cff", accent: "#00e5ff", border: "rgba(255,77,157,0.18)", preview: "linear-gradient(135deg,#ff4d9d,#00e5ff)" } },
-        { name: "Pastel Bloom", group: "Pastel", description: "Mềm, ngọt, hiện đại", icon: "P", vars: { bg: "#fff8fb", bg2: "#f4f0ff", surface: "rgba(255,255,255,0.78)", surface2: "rgba(255,255,255,0.95)", text: "#2f2a3d", muted: "rgba(47,42,61,0.65)", primary: "#ff7eb6", secondary: "#7bdff2", accent: "#b28dff", border: "rgba(47,42,61,0.08)", preview: "linear-gradient(135deg,#ff7eb6,#b28dff)" } },
-        { name: "Mint Fresh", group: "Nature", description: "Mát, sạch, tươi mới", icon: "F", vars: { bg: "#effaf5", bg2: "#dbf6ea", surface: "rgba(255,255,255,0.74)", surface2: "rgba(255,255,255,0.92)", text: "#17352d", muted: "rgba(23,53,45,0.65)", primary: "#19b37a", secondary: "#39c6a5", accent: "#83d483", border: "rgba(23,53,45,0.08)", preview: "linear-gradient(135deg,#19b37a,#83d483)" } },
-        { name: "Ocean Wave", group: "Nature", description: "Biển xanh, dịu mắt", icon: "O", vars: { bg: "#07111f", bg2: "#0d2744", surface: "rgba(255,255,255,0.08)", surface2: "rgba(255,255,255,0.12)", text: "#eef7ff", muted: "rgba(238,247,255,0.72)", primary: "#2eb7ff", secondary: "#00d4ff", accent: "#3df3cb", border: "rgba(46,183,255,0.18)", preview: "linear-gradient(135deg,#2eb7ff,#3df3cb)" } },
-        { name: "Forest", group: "Nature", description: "Trầm, xanh, ổn định", icon: "R", vars: { bg: "#07140e", bg2: "#12291d", surface: "rgba(255,255,255,0.07)", surface2: "rgba(255,255,255,0.11)", text: "#edf8f0", muted: "rgba(237,248,240,0.72)", primary: "#49b86a", secondary: "#8bd17c", accent: "#c1f07a", border: "rgba(137,209,124,0.15)", preview: "linear-gradient(135deg,#49b86a,#c1f07a)" } },
-        { name: "Sunset", group: "Warm", description: "Ấm, rực, cảm xúc", icon: "S", vars: { bg: "#160b14", bg2: "#34152b", surface: "rgba(255,255,255,0.08)", surface2: "rgba(255,255,255,0.13)", text: "#fff3ef", muted: "rgba(255,243,239,0.72)", primary: "#ff8f5c", secondary: "#ff5f8a", accent: "#ffd166", border: "rgba(255,255,255,0.14)", preview: "linear-gradient(135deg,#ff8f5c,#ffd166)" } },
-        { name: "Luxury Gold", group: "Premium", description: "Cao cấp, sang trọng", icon: "L", vars: { bg: "#0f0b08", bg2: "#231811", surface: "rgba(255,255,255,0.06)", surface2: "rgba(255,255,255,0.09)", text: "#fff7ea", muted: "rgba(255,247,234,0.72)", primary: "#d4af37", secondary: "#f2d28b", accent: "#9c6b30", border: "rgba(212,175,55,0.2)", preview: "linear-gradient(135deg,#d4af37,#9c6b30)" } },
-        { name: "Minimal Mono", group: "Minimal", description: "Đơn sắc, tập trung", icon: "M", vars: { bg: "#f4f4f4", bg2: "#dedede", surface: "rgba(255,255,255,0.82)", surface2: "rgba(255,255,255,0.95)", text: "#111111", muted: "rgba(17,17,17,0.62)", primary: "#111111", secondary: "#666666", accent: "#b8b8b8", border: "rgba(17,17,17,0.08)", preview: "linear-gradient(135deg,#111111,#b8b8b8)" } },
-        { name: "Paper", group: "Minimal", description: "Tối giản như giấy", icon: "P", vars: { bg: "#fbf8f1", bg2: "#f0ebe1", surface: "rgba(255,255,255,0.8)", surface2: "rgba(255,255,255,0.94)", text: "#2d2a24", muted: "rgba(45,42,36,0.66)", primary: "#6e6256", secondary: "#9c8f7c", accent: "#d7c6ae", border: "rgba(45,42,36,0.08)", preview: "linear-gradient(135deg,#6e6256,#d7c6ae)" } },
-        { name: "Sandstone", group: "Earth", description: "Ấm, dịu, tự nhiên", icon: "T", vars: { bg: "#f6efe5", bg2: "#e9dac8", surface: "rgba(255,255,255,0.78)", surface2: "rgba(255,255,255,0.94)", text: "#4a3728", muted: "rgba(74,55,40,0.66)", primary: "#b57a4f", secondary: "#d4a373", accent: "#e9c46a", border: "rgba(74,55,40,0.08)", preview: "linear-gradient(135deg,#b57a4f,#e9c46a)" } },
-        { name: "Lavender", group: "Pastel", description: "Mộng mơ, dịu dàng", icon: "V", vars: { bg: "#f8f5ff", bg2: "#ebe4ff", surface: "rgba(255,255,255,0.8)", surface2: "rgba(255,255,255,0.95)", text: "#30244a", muted: "rgba(48,36,74,0.66)", primary: "#8b5cf6", secondary: "#c084fc", accent: "#f472b6", border: "rgba(48,36,74,0.08)", preview: "linear-gradient(135deg,#8b5cf6,#f472b6)" } },
-        { name: "Rose Quartz", group: "Pastel", description: "Soft, pink, elegant", icon: "Q", vars: { bg: "#fff4f7", bg2: "#ffe2eb", surface: "rgba(255,255,255,0.82)", surface2: "rgba(255,255,255,0.95)", text: "#4d2436", muted: "rgba(77,36,54,0.66)", primary: "#ff6b9f", secondary: "#ff9ec4", accent: "#ffd1dc", border: "rgba(77,36,54,0.08)", preview: "linear-gradient(135deg,#ff6b9f,#ffd1dc)" } },
-        { name: "Arctic", group: "Light", description: "Mát lạnh, tinh khiết", icon: "A", vars: { bg: "#edf6fb", bg2: "#dceef7", surface: "rgba(255,255,255,0.82)", surface2: "rgba(255,255,255,0.95)", text: "#123046", muted: "rgba(18,48,70,0.66)", primary: "#0284c7", secondary: "#38bdf8", accent: "#67e8f9", border: "rgba(18,48,70,0.08)", preview: "linear-gradient(135deg,#0284c7,#67e8f9)" } },
-        { name: "Neon Lime", group: "Neon", description: "Bật sáng, tương phản mạnh", icon: "L", vars: { bg: "#040607", bg2: "#0c1111", surface: "rgba(255,255,255,0.06)", surface2: "rgba(255,255,255,0.1)", text: "#f2fff5", muted: "rgba(242,255,245,0.7)", primary: "#b9ff00", secondary: "#00ffa3", accent: "#ff3d81", border: "rgba(185,255,0,0.18)", preview: "linear-gradient(135deg,#b9ff00,#ff3d81)" } },
-        { name: "Graphite", group: "Dark", description: "Tối, trung tính, chắc chắn", icon: "G", vars: { bg: "#0b0d10", bg2: "#171b21", surface: "rgba(255,255,255,0.06)", surface2: "rgba(255,255,255,0.1)", text: "#f2f5f8", muted: "rgba(242,245,248,0.68)", primary: "#8b949e", secondary: "#5f6b7a", accent: "#cbd5e1", border: "rgba(255,255,255,0.12)", preview: "linear-gradient(135deg,#8b949e,#cbd5e1)" } },
-        { name: "Cherry", group: "Warm", description: "Năng lượng, nổi bật", icon: "H", vars: { bg: "#1a0710", bg2: "#350b1c", surface: "rgba(255,255,255,0.07)", surface2: "rgba(255,255,255,0.11)", text: "#fff1f4", muted: "rgba(255,241,244,0.72)", primary: "#ff4d6d", secondary: "#ff758f", accent: "#ffb3c1", border: "rgba(255,77,109,0.18)", preview: "linear-gradient(135deg,#ff4d6d,#ffb3c1)" } },
-        { name: "Blue Steel", group: "Corporate", description: "Chuyên nghiệp, hiện đại", icon: "B", vars: { bg: "#08111f", bg2: "#11233f", surface: "rgba(255,255,255,0.07)", surface2: "rgba(255,255,255,0.11)", text: "#eef4ff", muted: "rgba(238,244,255,0.72)", primary: "#3b82f6", secondary: "#60a5fa", accent: "#93c5fd", border: "rgba(147,197,253,0.16)", preview: "linear-gradient(135deg,#3b82f6,#93c5fd)" } },
-        { name: "Ember", group: "Warm", description: "Lửa, chiều sâu", icon: "E", vars: { bg: "#150a08", bg2: "#301513", surface: "rgba(255,255,255,0.07)", surface2: "rgba(255,255,255,0.11)", text: "#fff6f2", muted: "rgba(255,246,242,0.72)", primary: "#ff7b54", secondary: "#ff9f68", accent: "#ffd166", border: "rgba(255,123,84,0.18)", preview: "linear-gradient(135deg,#ff7b54,#ffd166)" } },
-        { name: "Plum", group: "Premium", description: "Đậm, nghệ, tinh tế", icon: "U", vars: { bg: "#120816", bg2: "#25132c", surface: "rgba(255,255,255,0.07)", surface2: "rgba(255,255,255,0.11)", text: "#f8f3ff", muted: "rgba(248,243,255,0.72)", primary: "#a855f7", secondary: "#d946ef", accent: "#fb7185", border: "rgba(168,85,247,0.18)", preview: "linear-gradient(135deg,#a855f7,#fb7185)" } },
-      ];
-
+      const themes = JSON.parse(document.getElementById('theme-data').textContent);
       const groups = [...new Set(themes.map((theme) => theme.group))];
-      const groupContainer = document.getElementById("themeGroups");
-      const search = document.getElementById("search");
-      const currentThemeLabel = document.getElementById("currentThemeLabel");
       const root = document.documentElement;
-      let activeTheme = "Aurora";
+      const groupContainer = document.getElementById('themeGroups');
+      const search = document.getElementById('search');
+      const currentThemeLabel = document.getElementById('currentThemeLabel');
+      let activeTheme = themes[0].name;
 
-      function setTheme(theme) {
-        root.dataset.theme = theme.name.toLowerCase().replace(/\s+/g, "-");
-        const css = theme.vars;
-        root.style.setProperty("--bg", css.bg);
-        root.style.setProperty("--bg-2", css.bg2);
-        root.style.setProperty("--surface", css.surface);
-        root.style.setProperty("--surface-2", css.surface2);
-        root.style.setProperty("--text", css.text);
-        root.style.setProperty("--muted", css.muted);
-        root.style.setProperty("--primary", css.primary);
-        root.style.setProperty("--secondary", css.secondary);
-        root.style.setProperty("--accent", css.accent);
-        root.style.setProperty("--border", css.border);
-        document.querySelectorAll(".swatch").forEach((el) => {
-          const themeName = el.closest(".theme-item")?.dataset.theme;
-          const item = themes.find((candidate) => candidate.name === themeName);
-          if (item) el.style.setProperty("--preview", item.vars.preview);
-        });
-        document.querySelectorAll(".theme-item").forEach((item) => {
-          item.classList.toggle("is-active", item.dataset.theme === theme.name);
-        });
+      function applyTheme(theme) {
+        root.dataset.theme = theme.name.toLowerCase().replace(/\s+/g, '-');
+        Object.entries(theme.vars).forEach(([key, value]) => root.style.setProperty(`--${key}`, value));
         currentThemeLabel.textContent = `Theme: ${theme.name}`;
+        document.querySelectorAll('.theme-item').forEach((item) => {
+          item.classList.toggle('is-active', item.dataset.theme === theme.name);
+        });
         activeTheme = theme.name;
       }
 
-      function renderThemes(filter = "") {
-        groupContainer.innerHTML = "";
-        const query = filter.trim().toLowerCase();
+      function renderThemes(query = '') {
+        groupContainer.innerHTML = '';
+        const needle = query.trim().toLowerCase();
 
         groups.forEach((group) => {
-          const filtered = themes.filter(
-            (theme) =>
-              theme.group === group &&
-              (theme.name.toLowerCase().includes(query) || theme.group.toLowerCase().includes(query) || theme.description.toLowerCase().includes(query))
+          const filtered = themes.filter((theme) =>
+            theme.group === group && (
+              theme.name.toLowerCase().includes(needle) ||
+              theme.group.toLowerCase().includes(needle) ||
+              theme.description.toLowerCase().includes(needle)
+            )
           );
 
           if (!filtered.length) return;
 
-          const section = document.createElement("section");
-          section.className = "sidebar-card group";
+          const section = document.createElement('section');
+          section.className = 'sidebar-card group';
           section.innerHTML = `<h2 class="group-title">${group}</h2>`;
 
-          const list = document.createElement("div");
-          list.className = "theme-list";
+          const list = document.createElement('div');
+          list.className = 'theme-list';
 
           filtered.forEach((theme) => {
-            const button = document.createElement("button");
-            button.className = "theme-item";
-            button.type = "button";
+            const button = document.createElement('button');
+            button.className = 'theme-item';
+            button.type = 'button';
             button.dataset.theme = theme.name;
             button.innerHTML = `
-              <div class="swatch" style="--preview:${theme.vars.preview}"></div>
+              <div class="swatch" style="--preview:${theme.preview}"></div>
               <div>
                 <strong>${theme.name}</strong>
                 <span>${theme.description}</span>
               </div>
               <span class="badge">${theme.group}</span>
             `;
-            button.addEventListener("click", () => setTheme(theme));
+            button.addEventListener('click', () => applyTheme(theme));
             list.appendChild(button);
           });
 
@@ -674,17 +276,14 @@
           groupContainer.appendChild(section);
         });
 
-        document.querySelectorAll(".theme-item").forEach((item) => {
-          item.classList.toggle("is-active", item.dataset.theme === activeTheme);
+        document.querySelectorAll('.theme-item').forEach((item) => {
+          item.classList.toggle('is-active', item.dataset.theme === activeTheme);
         });
       }
 
-      search.addEventListener("input", (event) => {
-        renderThemes(event.target.value);
-      });
-
+      search.addEventListener('input', (event) => renderThemes(event.target.value));
       renderThemes();
-      setTheme(themes.find((theme) => theme.name === activeTheme));
+      applyTheme(themes[0]);
     </script>
   </body>
 </html>

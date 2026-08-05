@@ -1,151 +1,52 @@
-# Vibe Coding - Theme Gallery Landing Page
+# ThemeVerse — Real Style Themes
 
-A modern, responsive landing page with an extensive theme gallery. Switch between 24+ beautiful themes instantly with live updates across the entire page.
+Landing page with **genuine multi-style themes**. Switching a theme changes the design system, not just the color palette.
 
-## 🌟 Features
+## Live
 
-- **24+ Modern Themes** organized into 8 categories:
-  - Glass & Glow
-  - Dark & Neon
-  - Light & Minimal
-  - Pastel & Premium
-  - Nature & Earth
-  - Warm & Corporate
+https://trungdoanhong.github.io/vibe-coding/
 
-- **Instant Theme Switching**: Click any theme to see real-time updates across the entire page
-- **Search Filter**: Find themes by name, description, or category
-- **100% Responsive**: Works beautifully on desktop, tablet, and mobile devices
-- **Glassmorphism UI**: Modern design with frosted glass effects and smooth animations
-- **Zero Dependencies**: Pure HTML, CSS, and vanilla JavaScript
+## What changes per theme
 
-## 🎨 Theme Categories
+- Typography (display + body fonts)
+- Shape language (radius / clip-path / pills / sharp blocks)
+- Depth model (glass blur, hard offset, emboss, neon glow, stamp, metal)
+- Borders and outlines
+- Background decoration (grid, scanlines, halftone, paper grain, orbs)
+- Button language
+- Component treatment (cards, chips, tables, inputs)
+- Hero voice/copy for the active style
 
-### Glass & Glow
-- **Aurora**: Creative, smooth, glowing
-- **Glass**: Transparent, ethereal
+## Style engines included
 
-### Dark
-- **Midnight**: Deep, elegant dark
-- **Graphite**: Neutral, professional dark
+| Style | What it feels like |
+| --- | --- |
+| `glass` | Glassmorphism / frosted SaaS |
+| `brutalist` | Poster brutalism, 0 radius, hard shadow |
+| `neobrutal` | Neo-brutalism, candy colors, chunky borders |
+| `clay` | Claymorphism, pill controls |
+| `neuro` | Neumorphism emboss/inset |
+| `terminal` | CRT/command-line UI |
+| `editorial` | Quiet luxury serif editorial |
+| `magazine` | Big-type magazine cover layout |
+| `vapor` | Vaporwave neon grid |
+| `y2k` | Glossy bubble / gel UI |
+| `cyber` | Angular HUD / clip-path tech |
+| `industrial` | Utility steel panels |
+| `swiss` | International typographic grid |
+| `paper` | Sketchbook ink + stamp |
+| `organic` | Asymmetric nature forms |
+| `saas` | Clean B2B product marketing |
+| `material` | Material tonal surfaces |
+| `pop` | Pop-art comic outlines |
 
-### Light
-- **Daylight**: Clean, bright, minimal
-- **Arctic**: Cool, pure
-
-### Neon
-- **Neon Pulse**: High contrast, vibrant
-- **Cyberpunk**: Dark, electronic, rebellious
-- **Neon Lime**: Bright, bold
-
-### Pastel
-- **Pastel Bloom**: Soft, sweet, modern
-- **Lavender**: Dreamy, gentle
-- **Rose Quartz**: Soft, pink, elegant
-
-### Nature
-- **Mint Fresh**: Cool, clean, refreshing
-- **Ocean Wave**: Ocean blue, calm
-- **Forest**: Deep, green, stable
-
-### Warm
-- **Sunset**: Warm, vibrant, emotional
-- **Cherry**: Energy, standout
-- **Ember**: Fire, depth
-
-### Premium
-- **Luxury Gold**: Upscale, refined
-- **Plum**: Deep, artistic, sophisticated
-
-### Minimal
-- **Minimal Mono**: Monochrome, focused
-- **Paper**: Minimalist like paper
-
-### Earth
-- **Sandstone**: Warm, gentle, natural
-
-### Corporate
-- **Blue Steel**: Professional, modern
-
-## 🚀 Live Demo
-
-Visit: **https://trungdoanhong.github.io/vibe-coding/**
-
-## 💻 Local Development
-
-Simply open `index.html` in your web browser:
+## Local
 
 ```bash
-# Using Python 3
 python3 -m http.server 8000
-
-# Using Python 2
-python -m SimpleHTTPServer 8000
-
-# Using Node.js (http-server)
-npx http-server
-
-# Using PHP
-php -S localhost:8000
+# open http://localhost:8000
 ```
 
-Then navigate to `http://localhost:8000`
+## Stack
 
-## 🎯 How to Use
-
-1. **Browse Themes**: Scroll through the left sidebar to see all available themes
-2. **Search**: Use the search box to filter themes by name or description
-3. **Switch**: Click on any theme to instantly apply it
-4. **Active Theme**: The current theme is highlighted with a glow effect
-
-## 🛠️ Customization
-
-### Adding New Themes
-
-Edit the `themes` array in the `<script>` section:
-
-```javascript
-{
-  name: "Your Theme",
-  group: "Category",
-  description: "Brief description",
-  icon: "Y",
-  vars: {
-    bg: "#ffffff",
-    bg2: "#f0f0f0",
-    surface: "rgba(0,0,0,0.05)",
-    // ... other color variables
-  }
-}
-```
-
-### Modifying Colors
-
-Update CSS variables in the `setTheme()` function to customize which elements respond to theme changes.
-
-## 📱 Responsive Breakpoints
-
-- **Desktop**: 2-column layout (sidebar + main content)
-- **Tablet** (1100px and below): Single column
-- **Mobile** (720px and below): Optimized touch experience with reduced stats grid
-
-## 🎨 Design System
-
-The page uses a sophisticated design system with:
-
-- **CSS Custom Properties** for dynamic theming
-- **Glassmorphism Effects**: Backdrop blur + transparency
-- **Smooth Animations**: 0.2s transitions for interactions
-- **Responsive Typography**: `clamp()` for fluid sizing
-- **Modern Color Blending**: `color-mix()` for gradient overlays
-
-## 📄 License
-
-Free to use and modify for personal or commercial projects.
-
-## 🤝 Contributing
-
-Feel free to suggest new themes or improvements!
-
----
-
-Made with ❤️ for designers and developers who love beautiful, modern interfaces.
+Single static `index.html` — HTML + CSS + vanilla JS. No build step.
